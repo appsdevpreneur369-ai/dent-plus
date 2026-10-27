@@ -1,0 +1,44 @@
+{
+  "name": "dpc-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "contrast": "node scripts/check-contrast.mjs",
+    "brand": "node scripts/generate-brand-assets.mjs",
+    "check": "npm run lint && npm run typecheck && npm test && npm run contrast && npm run build && npm run originality",
+    "tenant": "node scripts/build-tenant.mjs",
+    "images": "node scripts/build-image-variants.mjs",
+    "prebuild": "node scripts/build-image-variants.mjs",
+    "originality": "node scripts/check-originality.mjs",
+    "photos": "node scripts/build-photos.mjs"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^1.48.0",
+    "marked": "^18.0.14",
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8",
+    "puppeteer-core": "^25.12.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5",
+    "vitest": "^3.2.7"
+  }
+}

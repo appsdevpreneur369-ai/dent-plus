@@ -1,0 +1,14 @@
+{
+  "_note": "General clinic questions, written for Dent Plus. Department-specific questions live on each treatment page (services.json).",
+  "status": "approved",
+  "items": [
+    { "q": "Can I book for more than one family member?", "a": "Yes. Book each person separately, online or by phone. If you mention it at reception, the team will try to keep the appointments close together.", "home": true },
+    { "q": "Which doctor should I book if I'm not sure?", "a": "Choose the department that fits best and pick the general option. The doctor will see you and, if another of our doctors is better placed, arrange that.", "home": true },
+    { "q": "What are your timings?", "a": "{{hoursSummary}}.", "home": true },
+    { "q": "Do I need to bring anything?", "a": "Carry your current medicine strips or a written list, recent blood reports or X-rays, and your spectacles if you are coming for your eyes. For children, bring the vaccination card.", "home": true },
+    { "q": "How does online booking work?", "a": "Pick a department or doctor, then a free time. We text a six-digit code to your mobile to confirm it is you, and the appointment is booked straight into the clinic's system." },
+    { "q": "What does a consultation cost?", "a": "Consultation fees are being confirmed by the clinic. Treatment costs depend on what the doctor finds and are explained before anything starts.", "home": true },
+    { "q": "Is there parking?", "a": "The clinic is on Ashok Nagar 3rd Lane off BSNL Office Road. Please call if you need help finding a place to stop." },
+    { "q": "Do you see walk-in patients?", "a": "Walk-ins are seen when there is space, but a booked time usually means a shorter wait." }
+  ]
+}

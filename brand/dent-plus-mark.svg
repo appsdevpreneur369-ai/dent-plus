@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
+  <title id="t">Dent Plus</title>
+  <!-- Redrawn 27 Oct 2026 from images/logo.jpeg (photo of the clinic signboard): straightened and sharpened, shapes kept. -->
+  <rect width="512" height="512" rx="58" fill="#221F45"/>
+  <g transform="translate(-14 -10) scale(1.245)">
+    <!-- Crown above the swoosh -->
+    <path fill="#FFFFFF" d="M122 99C123 88 139 80 163 82C181 84 192 91 200 100C219 86 250 78 279 85C309 93 321 124 313 156C307 181 297 200 287 212C236 177 170 131 122 99Z"/>
+    <!-- Cusp groove -->
+    <path d="M187 109C196 104 205 102 214 100" fill="none" stroke="#221F45" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- Root side, below the swoosh -->
+    <path fill="#FFFFFF" d="M92 84C102 101 112 111 124 120C180 161 240 206 293 250C266 245 236 238 207 233C203 276 194 322 182 352C180 357 174 358 171 353C157 322 144 278 136 226C129 176 116 126 92 84Z"/>
+    <!-- Implant thread -->
+    <g fill="#FFFFFF">
+      <rect x="221" y="252" width="56" height="9.5" rx="4.75" transform="rotate(4 249 257)"/>
+      <rect x="223" y="268" width="51" height="9.5" rx="4.75" transform="rotate(4 249 273)"/>
+      <rect x="225" y="284" width="46" height="9.5" rx="4.75" transform="rotate(4 248 289)"/>
+      <rect x="227" y="300" width="41" height="9.5" rx="4.75" transform="rotate(4 248 305)"/>
+      <rect x="229" y="316" width="36" height="9.5" rx="4.75" transform="rotate(4 247 321)"/>
+      <rect x="231" y="332" width="31" height="9.5" rx="4.75" transform="rotate(4 246 337)"/>
+      <rect x="233" y="348" width="25" height="8.5" rx="4.25" transform="rotate(4 245 352)"/>
+    </g>
+    <!-- Plus badge -->
+    <circle cx="257" cy="128" r="34" fill="#2E9FE6"/>
+    <path d="M257 111V145M240 128H274" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

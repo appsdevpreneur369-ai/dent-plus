@@ -1,0 +1,28 @@
+{
+  "status": "approved",
+  "headerImage": "clinic-signboard-night",
+  "story": {
+    "title": "A dental clinic that grew into a family clinic",
+    "paragraphs": [
+      "Dent Plus is led by Dr. G. Phani Krishna, a prosthodontist and implantologist who also teaches as a professor at Sibar Institute of Dental Sciences. The dental side is where the clinic's name comes from: restoring and replacing teeth with implants, crowns, bridges and dentures, alongside everyday dental care.",
+      "The 'plus' is the rest of the family. A family physician with paediatric training and a family physician with a diploma in ophthalmology consult here too, so a child's fever or an elder's blurred vision can be seen in the same building as a dental check-up.",
+      "Our tagline sums it up: your smile, our priority. The aim is simple, practical care for the people of Lakshmipuram and the rest of Guntur, explained clearly, with referral onwards whenever something needs a hospital."
+    ],
+    "image": "clinic-corridor"
+  },
+  "values": {
+    "title": "What you can expect",
+    "items": [
+      { "icon": "message-square", "title": "Plain explanations", "text": "You hear what the doctor found and what the choices are, in words that make sense." },
+      { "icon": "clock", "title": "Evening hours", "text": "Open until 9 PM from Monday to Saturday, so visits fit around work and school." },
+      { "icon": "users", "title": "One place for the family", "text": "Dental, general, children's and eye consultations under one roof." },
+      { "icon": "shield-check", "title": "No pressure", "text": "Treatment starts only when you have understood it and agreed." }
+    ]
+  },
+  "team": { "title": "Meet the doctors", "lead": "Four doctors across four departments. Registration numbers and photos are being added." },
+  "platform": {
+    "title": "Booking and reminders, handled",
+    "lead": "Appointments, tokens at reception, prescriptions and follow-up messages run on ClinicFlow247, the clinic's booking system.",
+    "_note": "Patient-facing benefits come from src/lib/plan.ts (Enterprise)."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "_note": "This clinic's ClinicFlow247 pages: the SHARED portal app, branded by data (logo, colours, favicon, title). No separate tenant app. A NEXT_PUBLIC_PORTAL_BASE_URL build arg wins on local/staging builds. Subdomain needs wildcard DNS first (not available yet).",
+  "status": "placeholder",
+  "portalBaseUrl": "https://clinicflow247.com",
+  "clinicSlug": "dent-plus-dental-family-clinic",
+  "enterprise": {
+    "_note": "Proposed 'dentplus' (dentplus.clinicflow247.com), not confirmed by the clinic and not routed yet. Left empty so links use the shared portal path.",
+    "subdomain": ""
+  },
+  "paths": {
+    "login": "/clinic/{slug}/login",
+    "register": "/clinic/{slug}/register",
+    "forgotPassword": "/clinic/{slug}/forgot-password",
+    "clinicPage": "/clinic/{slug}",
+    "bookingPage": "/book/{slug}",
+    "staffLogin": "/login"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_note": "Four departments of a multi-speciality clinic (owner's brief, 27 Oct 2026). Each doctor maps to the departments they cover. Treatment lists inside each department are 'to confirm with the clinic' (services.json).",
+  "status": "approved",
+  "departments": [
+    {
+      "id": "dental",
+      "title": "Dental care",
+      "shortTitle": "Dental",
+      "icon": "tooth",
+      "line": "Implants, crowns, dentures and everyday dentistry",
+      "summary": "Our dental side is led by two prosthodontists, the specialists who rebuild and replace teeth. Alongside implants, crowns and dentures, they look after check-ups, cleaning, fillings, root canals and children's teeth.",
+      "generalLabel": "Dental check-up, or not sure",
+      "doctors": ["phani-krishna", "deepthi"]
+    },
+    {
+      "id": "family",
+      "title": "Family medicine",
+      "shortTitle": "Family",
+      "icon": "stethoscope",
+      "line": "Fevers, check-ups and long-term follow-up",
+      "summary": "Two family physicians see adults and older relatives for everyday illness, health check-ups and regular review of blood pressure and sugar, and point you to a specialist when one is needed.",
+      "caution": "General information only. Your doctor will advise on your own situation after examining you.",
+      "generalLabel": "General consultation",
+      "doctors": ["venugopal-rao", "padmaja-rani"]
+    },
+    {
+      "id": "children",
+      "title": "Children's health",
+      "shortTitle": "Children",
+      "icon": "baby",
+      "line": "Visits for babies, toddlers and school-age children",
+      "summary": "A doctor with paediatric training sees children for illness, growth questions and routine visits, and talks parents through what to watch for at home.",
+      "caution": "General information only, not a substitute for seeing a doctor. If a child is very unwell, go to the nearest emergency department.",
+      "generalLabel": "Child health visit",
+      "doctors": ["venugopal-rao"]
+    },
+    {
+      "id": "eyes",
+      "title": "Eye care",
+      "shortTitle": "Eyes",
+      "icon": "eye",
+      "line": "Eye checks, vision problems and referral when needed",
+      "summary": "An ophthalmology-trained doctor checks eyes and vision, looks at red, itchy or tired eyes, and arranges referral to a surgical centre when an operation is needed.",
+      "caution": "General information only. Sudden loss of vision or an eye injury needs urgent care at a hospital.",
+      "generalLabel": "Eye check",
+      "doctors": ["padmaja-rani"]
+    }
+  ]
+}

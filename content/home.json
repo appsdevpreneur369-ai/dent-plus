@@ -1,0 +1,75 @@
+{
+  "status": "approved",
+  "hero": {
+    "eyebrow": "Dental & family clinic · Lakshmipuram, Guntur",
+    "title": "Teeth, eyes and everyday health,",
+    "titleAccent": "one family clinic.",
+    "lead": "Prosthodontists for implants and dentures, family physicians, a paediatrician and an eye doctor work side by side at Dent Plus, so the whole household can be seen in one place.",
+    "image": "clinic-operatory",
+    "imageCaption": "Our treatment room, Ashok Nagar 3rd Lane",
+    "points": ["Four doctors, four departments", "Open till 9 PM, Monday to Saturday", "Book online, confirm by SMS code"],
+    "quickBook": {
+      "title": "Book in 30 seconds",
+      "lead": "Choose who you need to see. We'll show the free times.",
+      "button": "See free times",
+      "note": "Prefer to talk? Call us."
+    }
+  },
+  "departments": {
+    "eyebrow": "Departments",
+    "title": "Who do you need to see today?",
+    "lead": "Pick a department to see its doctors and what they look after.",
+    "servicesLabel": "What we see",
+    "doctorsLabel": "Your doctors",
+    "moreLabel": "All about"
+  },
+  "doctors": {
+    "eyebrow": "The doctors",
+    "title": "Specialists for the mouth, the eyes and the whole family",
+    "lead": "Qualifications as printed on our board. Photos and registration numbers are being added."
+  },
+  "visit": {
+    "eyebrow": "Your visit",
+    "title": "Your visit, step by step",
+    "lead": "The same simple flow for every department.",
+    "note": "Reminders and follow-up messages are sent by the clinic's booking system, ClinicFlow247.",
+    "steps": [
+      { "icon": "calendar-check", "title": "Book a time", "text": "Choose a department or doctor, pick a free slot and confirm with the code sent to your phone.", "who": "From your phone" },
+      { "icon": "ticket", "title": "Get your token", "text": "Tell reception your name. You receive a token number and join the queue for your doctor.", "who": "At reception" },
+      { "icon": "stethoscope", "title": "See the doctor", "text": "The doctor calls you in, examines you and explains what they find before anything is done.", "who": "In the consulting room" },
+      { "icon": "file-text", "title": "Take home a clear plan", "text": "A printed or digital prescription and the next steps, including any review date.", "who": "Before you leave" },
+      { "icon": "message-circle", "title": "Hear from us afterwards", "text": "A short thank-you and a reminder when your review or next visit is due.", "who": "After the visit" }
+    ]
+  },
+  "promise": {
+    "eyebrow": "How we work",
+    "title": "Care that explains itself",
+    "items": [
+      { "icon": "message-square", "title": "Explained before it is done", "text": "Options, visits and costs are discussed with you first. You decide." },
+      { "icon": "users", "title": "The household under one roof", "text": "A parent's denture, a child's fever and a grandparent's eye check can share one trip." },
+      { "icon": "shield-check", "title": "Honest about limits", "text": "When something needs a hospital or a surgical centre, we say so and tell you where." }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Inside Dent Plus",
+    "title": "A look around the clinic",
+    "lead": "Our own photos. Patients' faces are blurred.",
+    "tiles": [
+      { "image": "clinic-operatory-chair", "caption": "Dental chair" },
+      { "image": "clinic-signboard-night", "caption": "Our board at night" },
+      { "image": "treatment-team", "caption": "A dental procedure under way" },
+      { "image": "clinic-family-eye-care", "caption": "Family & eye care room" },
+      { "image": "clinic-waiting", "caption": "Waiting area" },
+      { "image": "clinic-smile-wall", "caption": "Make your smile brighter with us" }
+    ]
+  },
+  "location": {
+    "eyebrow": "Find us",
+    "title": "Opposite the Siti Cable office, Lakshmipuram",
+    "lead": "Look for the lit blue Dent Plus board on Ashok Nagar 3rd Lane.",
+    "image": "clinic-signboard-night"
+  },
+  "education": { "eyebrow": "Read before you visit", "title": "Patient guides", "lead": "Plain-language articles written for our patients. Doctor review in progress." },
+  "faq": { "eyebrow": "Questions", "title": "Asked at the front desk" },
+  "cta": { "title": "Expert care in every step.", "lead": "Book a dental, family, children's or eye appointment in under a minute.", "button": "Book an appointment" }
+}

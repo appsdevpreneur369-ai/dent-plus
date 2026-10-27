@@ -1,0 +1,302 @@
+{
+  "_note": "Treatment groups per department. Written for Dent Plus from scratch (no text from other clinic sites or directories). EVERY list is status placeholder = 'to confirm with the clinic' (owner's brief, 27 Oct 2026): the page shows that note until the doctors confirm what they offer. No prices, durations as typical ranges only, cautious medical wording.",
+  "priceNote": "Fees depend on what the doctor finds and are explained before any treatment starts. Consultation fees are being confirmed by the clinic.",
+  "categories": [
+    {
+      "slug": "dental-implants",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Dental implants",
+      "shortTitle": "Implants",
+      "icon": "tooth",
+      "size": "lg",
+      "image": "treatment-close",
+      "doctors": ["phani-krishna", "deepthi"],
+      "confirmSpecialist": false,
+      "short": "A titanium root placed in the jaw, topped with a crown, bridge or denture once the bone has healed around it.",
+      "intro": [
+        "An implant stands in for the lost root of a tooth. Once it has bonded with the jawbone, it can carry a single crown, a bridge across several gaps, or hold a denture firmly in place.",
+        "Both of our dentists are prosthodontists and implantologists, so the same team that plans the implant also designs the tooth that sits on it. Not everyone is suited to implants straight away: gum health, bone volume, diabetes and smoking all play a part, and the doctor will talk these through with you."
+      ],
+      "steps": [
+        { "title": "Consultation and scan", "text": "The doctor examines your mouth, reviews your health and arranges an X-ray or scan to measure the bone." },
+        { "title": "A written plan", "text": "Options, visit count and costs are written down for you to take home and think over." },
+        { "title": "Placing the implant", "text": "Done under local anaesthetic. Most people go home the same day with simple aftercare instructions." },
+        { "title": "Healing time", "text": "The bone usually needs a few months to grow around the implant. A temporary tooth can often be fitted meanwhile." },
+        { "title": "Fitting the final tooth", "text": "The crown, bridge or denture is made to match and fixed onto the implant, followed by regular reviews." }
+      ],
+      "subTreatments": [
+        { "slug": "single-implant", "title": "Single-tooth implant", "summary": "One implant and one crown to fill one gap, without filing down the teeth on either side.", "visits": "Several visits over a few months" },
+        { "slug": "implant-bridge", "title": "Implant-supported bridge", "summary": "Two or more implants carrying a bridge when several teeth in a row are missing.", "visits": "Several visits over a few months" },
+        { "slug": "implant-denture", "title": "Implant-retained denture", "summary": "A small number of implants that clip a denture in place so it no longer slips while eating or talking.", "visits": "Several visits; depends on the plan" },
+        { "slug": "implant-consultation", "title": "Implant consultation", "summary": "An unhurried first visit to find out whether implants suit you and what the alternatives are.", "visits": "1 visit" }
+      ],
+      "faqs": [
+        { "q": "Am I too old for an implant?", "a": "Age alone is rarely the deciding factor. General health, bone and gums matter more, and the doctor will check these with you at the consultation." },
+        { "q": "Does placing an implant hurt?", "a": "A local anaesthetic numbs the site beforehand; patients usually describe pushing or vibration, not pain. The gum may stay tender for a few days; the doctor will suggest which painkiller to take." }
+      ],
+      "seo": { "title": "Dental Implants in Guntur", "description": "Implant consultation, single-tooth implants, implant bridges and implant-retained dentures with prosthodontists at Dent Plus, Lakshmipuram, Guntur." }
+    },
+    {
+      "slug": "crowns-bridges-dentures",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Crowns, bridges and dentures",
+      "shortTitle": "Crowns & dentures",
+      "icon": "layers",
+      "size": "md",
+      "image": "clinic-operatory",
+      "doctors": ["phani-krishna", "deepthi"],
+      "confirmSpecialist": false,
+      "short": "Rebuilding broken teeth and replacing missing ones with caps, fixed bridges or removable dentures.",
+      "intro": [
+        "This is the core of prosthodontics. A crown is a made-to-measure cap that shields a tooth weakened by a crack, a large filling or root canal work. A bridge fills a gap by anchoring a false tooth to its neighbours. Dentures replace several or all teeth in an arch and can be taken out for cleaning.",
+        "The right choice turns on how many gaps you have, how sound your remaining teeth are, and whether you care most about comfort, looks, budget or time in the chair."
+      ],
+      "steps": [
+        { "title": "Examination", "text": "The doctor checks the teeth and gums and explains which options are realistic for you." },
+        { "title": "Preparation and impressions", "text": "Teeth are shaped if needed and measured so the new work fits your bite." },
+        { "title": "Trial and fitting", "text": "Dentures are usually tried in before they are finished; crowns and bridges are checked and cemented." },
+        { "title": "Adjustments", "text": "A follow-up visit eases any sore spots and fine-tunes the bite." }
+      ],
+      "subTreatments": [
+        { "slug": "crowns", "title": "Crowns (caps)", "summary": "A custom cover that strengthens a weak or broken tooth.", "visits": "Usually 2 visits" },
+        { "slug": "bridges", "title": "Fixed bridges", "summary": "A false tooth held between crowns on the neighbouring teeth.", "visits": "Usually 2–3 visits" },
+        { "slug": "complete-dentures", "title": "Complete dentures", "summary": "A full set of removable teeth when an arch has no natural teeth left.", "visits": "Usually 4–5 visits" },
+        { "slug": "partial-dentures", "title": "Partial dentures", "summary": "A removable plate that fills gaps between your remaining teeth.", "visits": "Usually 3–4 visits" },
+        { "slug": "denture-repair", "title": "Denture repair and relining", "summary": "Fixing cracks and refitting loose dentures as the gums change over time.", "visits": "Often 1 visit" }
+      ],
+      "faqs": [
+        { "q": "How long does a new denture take to feel normal?", "a": "Many people need a few weeks to get used to speaking and chewing with new dentures. Rubbing spots in the early days are expected, and a quick adjustment visit sorts most of them out." },
+        { "q": "Crown or implant: which do I need?", "a": "A crown saves a tooth you still have; an implant replaces one that is gone. The doctor will tell you whether your tooth can be kept." }
+      ],
+      "seo": { "title": "Crowns, Bridges & Dentures in Guntur", "description": "Crowns, fixed bridges, complete and partial dentures and denture relining by prosthodontists at Dent Plus Dental & Family Clinic, Lakshmipuram, Guntur." }
+    },
+    {
+      "slug": "everyday-dental-care",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Check-ups, cleaning and fillings",
+      "shortTitle": "Check-ups & fillings",
+      "icon": "smile",
+      "size": "md",
+      "image": "clinic-operatory-chair",
+      "doctors": ["phani-krishna", "deepthi"],
+      "confirmSpecialist": false,
+      "short": "Routine dental checks, scaling with polishing, and white fillings for decay.",
+      "intro": [
+        "Most dental problems are easier and cheaper to sort out when they are small. A routine visit lets the dentist spot early decay, gum inflammation and worn fillings before they start to hurt.",
+        "Scaling removes the hardened deposits (tartar) that brushing cannot shift. Small cavities can usually be repaired with a tooth-coloured filling in a single sitting."
+      ],
+      "steps": [
+        { "title": "Talk first", "text": "Tell the dentist about any pain, sensitivity or bleeding you have noticed." },
+        { "title": "Examination", "text": "Teeth, gums, old fillings and the bite are checked; an X-ray is taken only if it is needed." },
+        { "title": "Cleaning or filling", "text": "Done the same day where possible, or booked for a second visit." },
+        { "title": "Home-care advice", "text": "Simple tips on brushing, flossing and when to come back." }
+      ],
+      "subTreatments": [
+        { "slug": "dental-check-up", "title": "Dental check-up", "summary": "A full look at teeth and gums, with advice on anything that needs attention.", "visits": "1 visit" },
+        { "slug": "scaling-polishing", "title": "Scaling and polishing", "summary": "Professional cleaning above the gum line to remove tartar and stains.", "visits": "Usually 1 visit" },
+        { "slug": "tooth-coloured-fillings", "title": "Tooth-coloured fillings", "summary": "Repairing cavities and chipped edges with a material matched to your tooth shade.", "visits": "Usually 1 visit per tooth" },
+        { "slug": "sensitivity", "title": "Sensitive teeth", "summary": "Finding the cause of sharp twinges with cold or sweet food and suggesting what may help.", "visits": "1 visit, sometimes a follow-up" }
+      ],
+      "faqs": [
+        { "q": "How regularly do I need a dental check?", "a": "Twice a year suits many adults. Your dentist may space visits closer or further apart after seeing your teeth and gums." },
+        { "q": "Will cleaning loosen my teeth?", "a": "No. Scaling removes deposits; teeth can feel different afterwards because the tartar that filled the gaps is gone. Any looseness is checked and explained by the dentist." }
+      ],
+      "seo": { "title": "Dental Check-ups, Cleaning & Fillings, Guntur", "description": "Routine dental check-ups, scaling and polishing, tooth-coloured fillings and help with sensitive teeth at Dent Plus, Lakshmipuram, Guntur." }
+    },
+    {
+      "slug": "root-canal-and-extractions",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Root canal treatment and extractions",
+      "shortTitle": "Root canal & extractions",
+      "icon": "activity",
+      "size": "sm",
+      "image": "treatment-in-progress",
+      "doctors": ["phani-krishna", "deepthi"],
+      "confirmSpecialist": false,
+      "short": "Saving an infected tooth by cleaning its canals, or removing a tooth that cannot be kept.",
+      "intro": [
+        "When decay reaches the nerve inside a tooth, it can cause throbbing pain, swelling or a gum boil. Root canal treatment cleans and seals the inside of the tooth so it can usually be kept, often followed by a crown to protect it.",
+        "If a tooth is too broken or loose to save, the dentist may advise taking it out, and will talk through how the gap can be filled later with a bridge, denture or implant."
+      ],
+      "steps": [
+        { "title": "Diagnosis", "text": "An examination and X-ray show whether the tooth can be saved." },
+        { "title": "Numbing", "text": "Local anaesthetic is given so the procedure is comfortable." },
+        { "title": "Treatment", "text": "The canals are cleaned and sealed, or the tooth is gently removed." },
+        { "title": "Aftercare", "text": "You get written instructions and a review visit where needed." }
+      ],
+      "subTreatments": [
+        { "slug": "root-canal", "title": "Root canal treatment", "summary": "Cleaning, shaping and sealing the canals of an infected tooth.", "visits": "Usually 1–3 visits" },
+        { "slug": "simple-extraction", "title": "Tooth removal", "summary": "Taking out a tooth that cannot be repaired, under local anaesthetic.", "visits": "Usually 1 visit" },
+        { "slug": "gap-planning", "title": "Planning after an extraction", "summary": "Discussing options to replace the tooth once the area has healed.", "visits": "Part of the review visit" }
+      ],
+      "faqs": [
+        { "q": "Is a root canal better than taking the tooth out?", "a": "Keeping your own tooth is often preferred when it can be saved, but not every tooth can. The dentist will explain the choice for your tooth." }
+      ],
+      "seo": { "title": "Root Canal Treatment & Tooth Removal, Guntur", "description": "Root canal treatment for infected teeth, gentle extractions and planning to replace a lost tooth at Dent Plus Dental & Family Clinic, Guntur." }
+    },
+    {
+      "slug": "childrens-dental-care",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Children's dental care",
+      "shortTitle": "Kids' teeth",
+      "icon": "baby",
+      "size": "sm",
+      "image": "clinic-smile-wall",
+      "doctors": ["deepthi", "phani-krishna"],
+      "confirmSpecialist": false,
+      "short": "Friendly first visits, checks on milk teeth and early help with decay and habits.",
+      "intro": [
+        "Baby teeth keep room for the permanent ones underneath and are needed for eating and clear speech, so cavities in them are worth treating. A relaxed first visit, before anything hurts, helps a child see the dental chair as a normal place.",
+        "The dentist checks how teeth are coming through, looks for early cavities and gives parents practical advice on brushing, sweets and bottle or thumb habits."
+      ],
+      "steps": [
+        { "title": "Getting comfortable", "text": "Children can sit on a parent's lap and look at the instruments first." },
+        { "title": "Gentle check", "text": "Teeth and gums are counted and checked." },
+        { "title": "Treatment if needed", "text": "Small fillings or preventive care are explained to both child and parent." }
+      ],
+      "subTreatments": [
+        { "slug": "first-dental-visit", "title": "First dental visit", "summary": "A short, unhurried introduction for young children.", "visits": "1 visit" },
+        { "slug": "milk-teeth-fillings", "title": "Fillings for milk teeth", "summary": "Repairing small cavities before they cause pain.", "visits": "Usually 1 visit per tooth" },
+        { "slug": "habit-advice", "title": "Advice on habits", "summary": "Guidance for parents on thumb sucking, night bottles and sugary snacks.", "visits": "Part of the check-up" }
+      ],
+      "faqs": [
+        { "q": "At what age should a child have a first dental visit?", "a": "Many dentists suggest a first visit around the time the first teeth appear or by the first birthday. Ask the dentist what suits your child." }
+      ],
+      "seo": { "title": "Children's Dentist Visits in Guntur", "description": "First dental visits, care for milk teeth and advice for parents at Dent Plus Multi Speciality Dental & Family Clinic, Lakshmipuram, Guntur." }
+    },
+    {
+      "slug": "smile-care",
+      "status": "placeholder",
+      "department": "dental",
+      "title": "Smile care",
+      "shortTitle": "Smile care",
+      "icon": "sparkles",
+      "size": "sm",
+      "image": "clinic-operatory",
+      "doctors": ["phani-krishna", "deepthi"],
+      "confirmSpecialist": false,
+      "short": "Improving the look of chipped, stained, worn or uneven front teeth.",
+      "intro": [
+        "Small changes can make front teeth look neater: rebuilding a chipped edge, replacing old discoloured fillings, or reshaping worn teeth with crowns.",
+        "The dentist will tell you honestly what is achievable for your teeth. Results vary from person to person, and healthy gums and teeth always come first."
+      ],
+      "steps": [
+        { "title": "What bothers you", "text": "You explain what you would like to change." },
+        { "title": "Options", "text": "The dentist suggests realistic ways to get there, with the number of visits." },
+        { "title": "Treatment", "text": "Carried out in stages, with checks on shade and shape along the way." }
+      ],
+      "subTreatments": [
+        { "slug": "chipped-teeth", "title": "Chipped or broken edges", "summary": "Rebuilding small chips with tooth-coloured material.", "visits": "Usually 1 visit" },
+        { "slug": "stain-removal", "title": "Stain removal", "summary": "Cleaning and polishing away surface stains from tea, coffee or tobacco.", "visits": "Usually 1 visit" },
+        { "slug": "smile-crowns", "title": "Crowns for worn front teeth", "summary": "Restoring the shape and colour of heavily worn or filled front teeth.", "visits": "Usually 2 visits" }
+      ],
+      "faqs": [
+        { "q": "Can you make my teeth whiter?", "a": "Surface stains can often be polished away. Whether any further whitening option suits you is something the dentist will advise after checking your teeth." }
+      ],
+      "seo": { "title": "Smile Care for Front Teeth in Guntur", "description": "Repair of chipped edges, stain removal and crowns for worn front teeth, planned with prosthodontists at Dent Plus, Lakshmipuram, Guntur." }
+    },
+    {
+      "slug": "family-medicine",
+      "status": "placeholder",
+      "department": "family",
+      "title": "Family medicine",
+      "shortTitle": "Family medicine",
+      "icon": "stethoscope",
+      "size": "lg",
+      "image": "clinic-corridor",
+      "doctors": ["venugopal-rao", "padmaja-rani"],
+      "confirmSpecialist": false,
+      "short": "A family doctor for everyday illness, check-ups and regular follow-up of long-term conditions.",
+      "intro": [
+        "A family physician is often the first person to see when you feel unwell and are not sure where to go. Our two family physicians see adults and older relatives for fevers, coughs, stomach upsets, aches and general health questions.",
+        "For long-term conditions such as high blood pressure or diabetes, regular reviews help you and your doctor notice changes early. When a problem needs tests, a specialist or a hospital, the doctor will explain why and where."
+      ],
+      "steps": [
+        { "title": "Your story", "text": "The doctor listens to your symptoms and asks about your health and medicines." },
+        { "title": "Examination", "text": "A physical check, with blood pressure and other basic readings." },
+        { "title": "Plan", "text": "Advice, a prescription if needed, and tests or referral when appropriate." },
+        { "title": "Follow-up", "text": "A review date for ongoing conditions, so nothing slips." }
+      ],
+      "subTreatments": [
+        { "slug": "fever-infections", "title": "Fever, cough and infections", "summary": "Assessment of common illnesses and advice on care at home and warning signs.", "visits": "1 visit, follow-up if needed" },
+        { "slug": "health-check-up", "title": "General health check-up", "summary": "A review of your health with basic measurements, and tests where the doctor feels they are useful.", "visits": "1 visit" },
+        { "slug": "bp-sugar-follow-up", "title": "Blood pressure and sugar follow-up", "summary": "Regular reviews for people living with hypertension or diabetes, working alongside their usual treatment.", "visits": "Regular reviews" },
+        { "slug": "vaccination-guidance", "title": "Vaccination guidance for adults", "summary": "Advice on which vaccines may be relevant to you; the doctor will tell you where they can be given.", "visits": "Part of a consultation" }
+      ],
+      "faqs": [
+        { "q": "Can I see the family doctor and the dentist on the same day?", "a": "Often, yes. Book each appointment separately (or ask at the desk) and the team will try to place them close together." },
+        { "q": "Do you give vaccinations at the clinic?", "a": "This is being confirmed with the clinic. The doctor can advise you on vaccines in any case." }
+      ],
+      "seo": { "title": "Family Doctor in Lakshmipuram, Guntur", "description": "Family physicians at Dent Plus, Guntur: fever and infections, general check-ups, blood pressure and sugar follow-up, and vaccination advice." }
+    },
+    {
+      "slug": "child-health",
+      "status": "placeholder",
+      "department": "children",
+      "title": "Child health visits",
+      "shortTitle": "Child health",
+      "icon": "baby",
+      "size": "md",
+      "image": "clinic-family-eye-care",
+      "doctors": ["venugopal-rao"],
+      "confirmSpecialist": false,
+      "short": "Visits for unwell children, growth and feeding questions, and routine checks.",
+      "intro": [
+        "Children fall ill differently from adults, and parents often want to know when to wait and when to worry. A doctor with paediatric training can examine your child, explain what is likely going on and tell you which signs mean you should come back or go to hospital.",
+        "Routine visits are also a chance to talk about growth, eating, sleep and vaccinations. This page is general information only; the doctor will advise for your own child."
+      ],
+      "steps": [
+        { "title": "Tell us what you have noticed", "text": "Temperature readings, feeding, sleep and anything that worries you." },
+        { "title": "Gentle examination", "text": "Done with the child on a parent's lap where possible." },
+        { "title": "Clear advice", "text": "What to do at home, medicine doses if prescribed, and warning signs to watch for." }
+      ],
+      "subTreatments": [
+        { "slug": "sick-child-visit", "title": "Unwell child visit", "summary": "Fever, cough, cold, ear pain, vomiting or loose motions assessed by the doctor.", "visits": "1 visit, review if needed" },
+        { "slug": "growth-and-feeding", "title": "Growth and feeding questions", "summary": "Weight, height and eating concerns discussed with parents.", "visits": "1 visit" },
+        { "slug": "child-vaccination-guidance", "title": "Vaccination guidance", "summary": "Help understanding your child's vaccination card and what is due; the doctor will tell you where vaccines are given.", "visits": "Part of a visit" }
+      ],
+      "faqs": [
+        { "q": "My child has a fever. Should I come in?", "a": "See our article on children's fevers for general guidance. Babies under three months with a fever, or any child who is very drowsy, struggling to breathe or not drinking, need urgent medical attention." }
+      ],
+      "seo": { "title": "Child Health Visits in Guntur", "description": "A family physician and paediatrician at Dent Plus, Lakshmipuram, Guntur for unwell children, growth and feeding questions and vaccination guidance." }
+    },
+    {
+      "slug": "eye-care",
+      "status": "placeholder",
+      "department": "eyes",
+      "title": "Eye care",
+      "shortTitle": "Eye care",
+      "icon": "eye",
+      "size": "md",
+      "image": "clinic-family-eye-care",
+      "doctors": ["padmaja-rani"],
+      "confirmSpecialist": false,
+      "short": "Eye and vision checks, help with common eye complaints and referral for surgery when needed.",
+      "intro": [
+        "Blurred vision, headaches while reading, red or itchy eyes and difficulty seeing at night are all reasons to have your eyes checked. Our ophthalmology-trained doctor examines the eyes, checks vision and explains what she finds.",
+        "Some conditions, such as cataract, may need an operation. In that case the doctor will explain why and refer you to a surgical eye centre. This page is general information only."
+      ],
+      "steps": [
+        { "title": "Symptoms and history", "text": "What you notice, how long it has been happening, and any diabetes or blood pressure." },
+        { "title": "Vision and eye check", "text": "Reading charts and an examination of the front and back of the eye as needed." },
+        { "title": "Advice", "text": "Glasses prescription, eye drops, lifestyle tips, or a referral." }
+      ],
+      "subTreatments": [
+        { "slug": "eye-check", "title": "Eye and vision check", "summary": "Testing how well you see and examining the health of the eyes.", "visits": "1 visit" },
+        { "slug": "red-itchy-eyes", "title": "Red, itchy or watery eyes", "summary": "Finding the likely cause of irritation and what may help.", "visits": "1 visit" },
+        { "slug": "screen-eye-strain", "title": "Eye strain and screen use", "summary": "Advice for tired eyes and headaches with phones, computers and reading.", "visits": "1 visit" },
+        { "slug": "surgery-referral", "title": "Referral for eye surgery", "summary": "When an operation such as cataract surgery is needed, referral to a surgical eye centre.", "visits": "As advised" }
+      ],
+      "faqs": [
+        { "q": "Do I need an eye check if I have diabetes?", "a": "People with diabetes are often advised to have regular eye checks, because changes can start without symptoms. Ask the doctor how often is right for you." },
+        { "q": "Is eye surgery done at Dent Plus?", "a": "The doctor examines and advises at the clinic and refers you to a surgical eye centre when an operation is needed." }
+      ],
+      "seo": { "title": "Eye Check-ups in Lakshmipuram, Guntur", "description": "Eye and vision checks, help with red or strained eyes and referral for eye surgery when needed, at Dent Plus Dental & Family Clinic, Guntur." }
+    }
+  ]
+}

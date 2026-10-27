@@ -1,0 +1,241 @@
+{
+  "_note": "Names, degrees and roles from the owner (27 Oct 2026); also printed on the clinic's night signboard. FICOI and MDS (OSM) confirmed by the owner. Registration numbers, fees and experience: NOT supplied (never invent). Consultation hours = clinic hours until each doctor's own hours are confirmed. Slots 15 min (assumed).",
+  "consultSlotMinutes": 15,
+  "doctors": [
+    {
+      "id": "phani-krishna",
+      "status": "approved",
+      "slug": "dr-g-phani-krishna",
+      "previousSlugs": [],
+      "firstName": "Phani Krishna",
+      "lastName": "G",
+      "displayName": "Dr. G. Phani Krishna",
+      "initials": "PK",
+      "qualification": "MDS (SRM); FICOI (USA)",
+      "specialty": "Prosthodontist & Implantologist",
+      "departments": [
+        "dental"
+      ],
+      "schemaSpecialties": [
+        "Dentistry"
+      ],
+      "council": "dental",
+      "chips": [
+        "Implants",
+        "Crowns & bridges",
+        "Dentures"
+      ],
+      "role": "Lead dentist · Professor, Sibar Institute of Dental Sciences",
+      "isHead": true,
+      "photo": null,
+      "photoSecondary": null,
+      "registrationNumber": "",
+      "clinicflowDoctorId": null,
+      "summary": "Prosthodontist and implantologist who leads the dental team and teaches as a professor at Sibar Institute of Dental Sciences.",
+      "bio": [
+        "Dr. Phani Krishna holds an MDS from SRM and a fellowship of the International Congress of Oral Implantologists (FICOI, USA). Prosthodontics is the branch of dentistry that restores and replaces teeth, so his day-to-day work centres on implants, crowns, bridges and dentures.",
+        "Besides seeing patients at Dent Plus, he is a professor at Sibar Institute of Dental Sciences. At the clinic he plans implant and denture cases with you step by step, explaining the options that suit your mouth, your health and your budget before anything begins."
+      ],
+      "focus": [
+        "Dental implants",
+        "Crowns and bridges",
+        "Complete and partial dentures",
+        "Full-mouth rehabilitation planning"
+      ],
+      "consultation": [
+        {
+          "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "opens": "09:30",
+          "closes": "21:00"
+        }
+      ],
+      "consultationStatus": "placeholder",
+      "experienceYears": null,
+      "experienceStatus": "placeholder"
+    },
+    {
+      "id": "deepthi",
+      "status": "approved",
+      "slug": "dr-b-deepthi",
+      "previousSlugs": [],
+      "firstName": "Deepthi",
+      "lastName": "B",
+      "displayName": "Dr. B. Deepthi",
+      "initials": "BD",
+      "qualification": "MDS (OSM)",
+      "specialty": "Consultant Prosthodontist & Implantologist",
+      "departments": [
+        "dental"
+      ],
+      "schemaSpecialties": [
+        "Dentistry"
+      ],
+      "council": "dental",
+      "chips": [
+        "Implants",
+        "Dentures",
+        "Children's teeth"
+      ],
+      "role": "Consultant dentist",
+      "isHead": false,
+      "photo": "doctor-deepthi-at-work",
+      "photoSecondary": null,
+      "registrationNumber": "",
+      "clinicflowDoctorId": null,
+      "summary": "Consultant prosthodontist and implantologist who sees families for restorative and everyday dental care.",
+      "bio": [
+        "Dr. Deepthi holds an MDS and works at Dent Plus as a consultant prosthodontist and implantologist, restoring worn, broken and missing teeth with crowns, bridges, dentures and implants.",
+        "She also sees patients for routine check-ups, fillings and cleaning, and for children's dental visits, so a whole family can be looked after by the same dental team."
+      ],
+      "focus": [
+        "Implant-supported teeth",
+        "Crowns, bridges and dentures",
+        "Routine dental care",
+        "Children's dental visits"
+      ],
+      "consultation": [
+        {
+          "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "opens": "09:30",
+          "closes": "21:00"
+        }
+      ],
+      "consultationStatus": "placeholder",
+      "experienceYears": null,
+      "experienceStatus": "placeholder"
+    },
+    {
+      "id": "venugopal-rao",
+      "status": "approved",
+      "slug": "dr-g-venugopal-rao",
+      "previousSlugs": [],
+      "firstName": "Venugopal Rao",
+      "lastName": "G",
+      "displayName": "Dr. G. Venugopal Rao",
+      "initials": "VR",
+      "qualification": "MBBS, Senior Resident (Paediatrics)",
+      "specialty": "Consultant Family Physician & Paediatrician",
+      "departments": [
+        "children",
+        "family"
+      ],
+      "schemaSpecialties": [
+        "Pediatric",
+        "PrimaryCare"
+      ],
+      "council": "medical",
+      "chips": [
+        "Children",
+        "Fever",
+        "Family visits"
+      ],
+      "role": "Consultant physician",
+      "isHead": false,
+      "photo": null,
+      "photoSecondary": null,
+      "registrationNumber": "",
+      "clinicflowDoctorId": null,
+      "summary": "Family physician with paediatric training who sees children as well as adults.",
+      "bio": [
+        "Dr. Venugopal Rao holds an MBBS and has worked as a senior resident in paediatrics. At Dent Plus he is the consulting family physician and paediatrician.",
+        "Parents bring babies and children to him for fevers, coughs, tummy upsets and growth questions; adults see him for everyday illness and check-ups. When a child or adult needs tests or a hospital, he explains why and where to go."
+      ],
+      "focus": [
+        "Children's illness and routine visits",
+        "Fever and infections",
+        "Adult general consultations",
+        "Advice on when hospital care is needed"
+      ],
+      "consultation": [
+        {
+          "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "opens": "09:30",
+          "closes": "21:00"
+        }
+      ],
+      "consultationStatus": "placeholder",
+      "experienceYears": null,
+      "experienceStatus": "placeholder"
+    },
+    {
+      "id": "padmaja-rani",
+      "status": "approved",
+      "slug": "dr-t-padmaja-rani",
+      "previousSlugs": [],
+      "firstName": "Padmaja Rani",
+      "lastName": "T",
+      "displayName": "Dr. T. Padmaja Rani",
+      "initials": "PR",
+      "qualification": "MBBS, D.O.",
+      "specialty": "Consultant Family Physician & Ophthalmologist",
+      "departments": [
+        "eyes",
+        "family"
+      ],
+      "schemaSpecialties": [
+        "PrimaryCare"
+      ],
+      "council": "medical",
+      "chips": [
+        "Eye checks",
+        "Vision",
+        "Family visits"
+      ],
+      "role": "Consultant physician",
+      "isHead": false,
+      "photo": null,
+      "photoSecondary": null,
+      "registrationNumber": "",
+      "clinicflowDoctorId": null,
+      "summary": "Family physician with a diploma in ophthalmology who looks after eyes as well as general health.",
+      "bio": [
+        "Dr. Padmaja Rani holds an MBBS and a Diploma in Ophthalmology (D.O.). She is the clinic's consulting family physician and eye doctor.",
+        "She checks vision and eye health, sees patients with red, watery, itchy or strained eyes, and arranges referral to a surgical eye centre when an operation such as cataract surgery is needed. She also sees adults for general medical problems."
+      ],
+      "focus": [
+        "Eye and vision checks",
+        "Red, itchy or tired eyes",
+        "Referral for eye surgery",
+        "Adult general consultations"
+      ],
+      "consultation": [
+        {
+          "days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "opens": "09:30",
+          "closes": "21:00"
+        }
+      ],
+      "consultationStatus": "placeholder",
+      "experienceYears": null,
+      "experienceStatus": "placeholder"
+    }
+  ]
+}

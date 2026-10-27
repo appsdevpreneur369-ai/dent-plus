@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Dent Plus design system (27 Oct 2026): "family clinic, calm and premium". Deep navy + confident blue, generous white
+ * space, large editorial Outfit headings, crisp cards with 1px borders, pill buttons, and the sky "+" from the logo as
+ * the signature motif. Header height is fixed (72px): scrolling only toggles a border, never padding (no bounce).
+ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    @apply bg-background font-body text-text antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-text;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    font-weight: 600;
+  }
+  h1 { font-size: clamp(2.35rem, 5.4vw, 4.1rem); }
+  h2 { font-size: clamp(1.8rem, 3.4vw, 2.75rem); }
+  h3 { font-size: 1.2rem; letter-spacing: -0.015em; line-height: 1.25; }
+  a { text-underline-offset: 4px; }
+  /* Focus ring: primary on light backgrounds (8.7:1), sky on navy bands (5.3:1). Sky on white is only 2.9:1. */
+  :focus-visible {
+    outline: 3px solid rgb(var(--c-primary));
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .on-dark :focus-visible { outline-color: rgb(var(--c-sky)); }
+  /* The CTA band is primary blue: white ring there (8.7:1). */
+  .bg-primary.on-dark :focus-visible { outline-color: rgb(var(--c-onDark)); }
+  ::selection { background: rgb(var(--c-skySoft)); color: rgb(var(--c-navy)); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-16 sm:py-20 lg:py-28; }
+  /* Eyebrow with the logo's "+" as a marker. */
+  .eyebrow { @apply inline-flex items-center gap-2.5 font-body text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-primary; }
+  .eyebrow::before { content: '+'; @apply inline-flex h-5 w-5 items-center justify-center rounded-full bg-sky font-heading text-[0.9rem] font-bold leading-none text-onDark; }
+  .on-dark .eyebrow { @apply text-skyOnDark; }
+  .lead { @apply text-[1.08rem] leading-relaxed text-textSecondary sm:text-[1.15rem]; }
+  .card { @apply rounded-brand border border-border bg-surface; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 font-body text-[0.98rem] font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-cta, .btn-primary { @apply btn bg-primary text-onDark hover:bg-primaryHover; }
+  .btn-navy { @apply btn bg-navy text-onDark hover:bg-navySoft; }
+  .btn-ghost { @apply btn border border-border bg-surface text-primaryDeep hover:border-primary; }
+  .btn-light { @apply btn bg-surface text-navy hover:bg-skySoft; }
+  .btn-dark-ghost { @apply btn border border-onDark/35 text-onDark hover:border-onDark hover:bg-onDark/10; }
+  .btn-whatsapp { @apply btn bg-whatsapp text-onDark hover:brightness-110; }
+  .chip { @apply inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-[0.95rem] font-medium text-text transition-colors hover:border-primary; }
+  .chip-static { @apply inline-flex items-center rounded-full bg-skySoft px-3 py-1 text-[0.82rem] font-semibold text-primaryDeep; }
+  .input { @apply min-h-[48px] w-full rounded-tile border border-border bg-surface px-3.5 text-base text-text placeholder:text-textSecondary focus:border-primary; }
+  .icon-tile { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-tile bg-skySoft text-primary; }
+  .nav-link { @apply relative inline-flex h-[72px] items-center whitespace-nowrap px-3 text-[0.96rem] font-medium text-text transition-colors hover:text-primary; }
+  .nav-link::after { content: ''; @apply absolute bottom-[18px] left-1/2 h-1.5 w-1.5 -translate-x-1/2 scale-0 rounded-full bg-sky transition-transform duration-200; }
+  .nav-link:hover::after, .nav-link[aria-current='page']::after { @apply scale-100; }
+  .nav-link[aria-current='page'] { @apply text-primary; }
+  .nav-link:focus-visible { outline-offset: -6px; }
+  .mobile-nav-link { @apply flex min-h-[56px] items-center justify-between border-b border-border font-heading text-xl font-medium text-text hover:text-primary; }
+  .mobile-nav-link[aria-current='page'] { @apply text-primary; }
+  .prose-site { @apply max-w-prose text-[1.04rem] leading-[1.75] text-text; }
+  .prose-site h2 { @apply mb-3 mt-10 text-[1.6rem]; }
+  .prose-site h3 { @apply mb-2 mt-6; }
+  .prose-site p { @apply my-4; }
+  .prose-site ul { @apply my-4 list-disc space-y-1.5 pl-6 marker:text-sky; }
+  .prose-site ol { @apply my-4 list-decimal space-y-1.5 pl-6; }
+  .prose-site a { @apply font-semibold text-primary underline; }
+  .prose-site strong { @apply font-semibold text-text; }
+  .prose-site em { @apply text-textSecondary; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  /* Thin blueprint grid used behind the hero and page headers (decoration only). */
+  .grid-wash {
+    background-image: linear-gradient(rgb(var(--c-border) / .55) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--c-border) / .55) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%);
+  }
+}

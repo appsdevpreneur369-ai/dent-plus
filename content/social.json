@@ -1,0 +1,8 @@
+{
+  "_note": "No social profiles supplied (PENDING_ITEMS.md). Empty URLs are hidden and left out of JSON-LD sameAs.",
+  "status": "placeholder",
+  "links": [
+    { "platform": "instagram", "label": "Instagram", "url": "" },
+    { "platform": "facebook", "label": "Facebook", "url": "" }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "_note": "Facts from the account owner, 27 Oct 2026 (CLAUDE.md → Facts and their source). Phones also printed on the clinic signboard. Email and Google listing are placeholders: never invent them.",
+  "name": {
+    "value": "Dent Plus Multi Speciality Dental & Family Clinic",
+    "status": "approved"
+  },
+  "shortName": "Dent Plus",
+  "slug": "dent-plus-dental-family-clinic",
+  "tagline": {
+    "value": "Your smile, our priority.",
+    "status": "approved"
+  },
+  "description": {
+    "value": "Dent Plus in Lakshmipuram, Guntur brings a dental team led by prosthodontists and implantologists together with family physicians, a paediatrician and an eye doctor, under one roof.",
+    "status": "approved"
+  },
+  "address": {
+    "status": "approved",
+    "_note": "PIN 522007 confirmed by the owner, 27 Oct 2026.",
+    "doorNumber": "D.No 5-72-31/3",
+    "street": "Ashok Nagar 3rd Lane, BSNL Office Road",
+    "landmark": "Opp. Siti Cable Office",
+    "locality": "Lakshmipuram, Guntur",
+    "district": "Guntur",
+    "region": "Andhra Pradesh",
+    "postalCode": "522007",
+    "country": "IN",
+    "countryName": "India"
+  },
+  "phone": {
+    "status": "approved",
+    "display": "94409 19770",
+    "e164": "+919440919770",
+    "_note": "Appointment line. Second number in phoneAlt."
+  },
+  "phoneAlt": {
+    "status": "approved",
+    "display": "92475 91847",
+    "e164": "+919247591847"
+  },
+  "whatsapp": {
+    "status": "approved",
+    "display": "94409 19770",
+    "e164": "+919440919770",
+    "_note": "Owner, 27 Oct 2026: 9440919770 is on WhatsApp."
+  },
+  "email": {
+    "status": "placeholder",
+    "value": "Email address being confirmed"
+  },
+  "timezone": "Asia/Kolkata",
+  "hours": {
+    "_note": "Owner, 27 Oct 2026: Mon–Sat 9:30 AM – 9:00 PM continuous, Sunday closed. Directories show a split day: question kept in PENDING_ITEMS.md, not shown here.",
+    "status": "approved",
+    "sessionsStatus": "approved",
+    "daysStatus": "approved",
+    "days": [
+      {
+        "day": "monday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "tuesday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "wednesday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "thursday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "friday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "saturday",
+        "sessions": [
+          {
+            "opens": "09:30",
+            "closes": "21:00"
+          }
+        ]
+      },
+      {
+        "day": "sunday",
+        "sessions": []
+      }
+    ]
+  },
+  "maps": {
+    "status": "placeholder",
+    "_note": "No Google listing link yet: directions open a Google Maps search for the address. Swap shareUrl/embedUrl/geo when the listing is confirmed.",
+    "query": "Dent Plus Dental & Family Clinic, Ashok Nagar 3rd Lane, BSNL Office Road, Lakshmipuram, Guntur 522007",
+    "shareUrl": "",
+    "embedUrl": "",
+    "geo": null,
+    "wayfinding": [
+      {
+        "icon": "navigation",
+        "text": "Take BSNL Office Road in Lakshmipuram and turn into Ashok Nagar 3rd Lane."
+      },
+      {
+        "icon": "map-pin",
+        "text": "The clinic faces the Siti Cable office; look for the lit blue Dent Plus board."
+      },
+      {
+        "icon": "clock",
+        "text": "Open from 9:30 in the morning to 9 at night, Monday to Saturday."
+      }
+    ]
+  },
+  "areaServed": {
+    "status": "approved",
+    "places": [
+      "Guntur",
+      "Lakshmipuram",
+      "Ashok Nagar",
+      "Brodipet",
+      "Arundelpet"
+    ]
+  },
+  "googleReview": {
+    "status": "placeholder",
+    "_note": "No Google Business listing confirmed yet (PENDING_ITEMS.md). stagingDemoUrl is a plain Google search for the clinic, used ONLY on staging with setup-staging.py --demo-review-link so the review-request stage can be shown in the demo.",
+    "writeReviewUrl": "",
+    "stagingDemoUrl": "https://www.google.com/search?q=Dent+Plus+Multi+Speciality+Dental+%26+Family+Clinic+Lakshmipuram+Guntur"
+  }
+}

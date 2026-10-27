@@ -1,0 +1,40 @@
+{
+  "header": [
+    { "label": "Departments", "href": "/departments" },
+    { "label": "Doctors", "href": "/doctors" },
+    { "label": "Treatments", "href": "/treatments" },
+    { "label": "About", "href": "/about" },
+    { "label": "Guides", "href": "/patient-education" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "footer": [
+    {
+      "title": "Departments",
+      "links": [
+        { "label": "Dental care", "href": "/departments/dental" },
+        { "label": "Family medicine", "href": "/departments/family" },
+        { "label": "Children's health", "href": "/departments/children" },
+        { "label": "Eye care", "href": "/departments/eyes" }
+      ]
+    },
+    {
+      "title": "Clinic",
+      "links": [
+        { "label": "Doctors", "href": "/doctors" },
+        { "label": "Treatments", "href": "/treatments" },
+        { "label": "Gallery", "href": "/gallery" },
+        { "label": "FAQs", "href": "/faqs" },
+        { "label": "Urgent problems", "href": "/emergency" }
+      ]
+    },
+    {
+      "title": "Patients",
+      "links": [
+        { "label": "Book an appointment", "href": "/book" },
+        { "label": "Patient sign-in", "href": "@portal:login" },
+        { "label": "Create an account", "href": "@portal:register" },
+        { "label": "Staff login", "href": "@portal:staffLogin" }
+      ]
+    }
+  ]
+}

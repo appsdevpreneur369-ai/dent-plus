@@ -1,0 +1,35 @@
+{
+  "base": "http://localhost:3300",
+  "date": "2026-10-27T17:48:55.886Z",
+  "rows": [
+    {
+      "form": "mobile",
+      "path": "/",
+      "performance": 92,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "lcp": "2.8 s",
+      "cls": "0.028",
+      "tbt": "190 ms",
+      "failing": [
+        "largest-contentful-paint (2.8 s)",
+        "is-crawlable"
+      ]
+    },
+    {
+      "form": "desktop",
+      "path": "/",
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "lcp": "0.6 s",
+      "cls": "0.004",
+      "tbt": "0 ms",
+      "failing": [
+        "is-crawlable"
+      ]
+    }
+  ]
+}

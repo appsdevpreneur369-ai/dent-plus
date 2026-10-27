@@ -1,0 +1,36 @@
+{
+  "status": "approved",
+  "_note": "Booking: ClinicFlow247 live slots + OTP (clinicflow) → enquiry (ClinicFlow lead) → WhatsApp (approved number 9440919770) → 'not available' + Call. Never fakes success. apiBaseUrl/clinicSlug are overridden per deployment by NEXT_PUBLIC_CLINICFLOW_* build args.",
+  "mode": "clinicflow",
+  "clinicflow": {
+    "_note": "Empty here: staging values come from build args (cloudbuild.staging.yaml). Production only after the owner's go.",
+    "apiBaseUrl": "",
+    "clinicSlug": "dent-plus-dental-family-clinic",
+    "clinicId": ""
+  },
+  "advanceDays": 21,
+  "otpResendSeconds": 30,
+  "allowDirectSpecialistBooking": true,
+  "defaultDoctor": "phani-krishna",
+  "popup": {
+    "_note": "No auto-opening popup on this site: booking opens only when the visitor asks (hero card, buttons, mobile bar).",
+    "enabled": false,
+    "delaySeconds": 30,
+    "oncePerSession": true,
+    "showOnMobile": false,
+    "excludedPaths": [
+      "/book",
+      "/contact",
+      "/emergency",
+      "/privacy",
+      "/terms",
+      "/disclaimer",
+      "/cookies"
+    ]
+  },
+  "consent": "I agree that Dent Plus may use these details to arrange my appointment and contact me about it.",
+  "whatsappMessage": "Hello {{clinic}}, I would like an appointment.\nName: {{name}}\nMobile: {{phone}}\nFor: {{problem}}\nDoctor: {{doctor}}\nPreferred day: {{day}}, {{time}}",
+  "enquiryMessage": "Appointment request from the website. For: {{problem}}. Doctor: {{doctor}}. Preferred: {{day}}, {{time}}.",
+  "generalWhatsappMessage": "Hello {{clinic}}, I have a question about an appointment.",
+  "note": "Running late or need to change the time? Call the clinic and we will move it for you."
+}

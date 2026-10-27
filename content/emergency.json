@@ -1,0 +1,14 @@
+{
+  "status": "approved",
+  "title": "Urgent problems: what to do",
+  "lead": "General first steps while you arrange care. Call the clinic during opening hours; outside them, or for anything serious, go to the nearest hospital emergency department.",
+  "hospitalWarning": "Go to a hospital emergency department straight away for difficulty breathing or swallowing, swelling spreading to the eye or neck, a serious injury, a fit, a child who is floppy or hard to wake, or sudden loss of vision. Do not wait for a clinic appointment.",
+  "situations": [
+    { "department": "dental", "title": "A tooth has been knocked out", "steps": ["Pick it up by the white biting part only; avoid touching the root.", "If it is dirty, rinse it briefly in milk or clean water; do not scrub it.", "Keep it moist in milk or inside the cheek (adults only) and come to the clinic as quickly as you can."] },
+    { "department": "dental", "title": "Toothache with swelling", "steps": ["Rinse with warm salt water.", "Holding something cold against the cheek, wrapped in a cloth, may help the swelling settle.", "Do not put painkiller tablets against the gum.", "Book the first available dental slot; go to hospital if swelling spreads or you have a high fever."] },
+    { "department": "dental", "title": "A denture has cracked", "steps": ["Keep the pieces together in a clean box.", "Avoid glue from a shop: it can damage the denture and your gums.", "Bring the pieces to the clinic for repair."] },
+    { "department": "children", "title": "A child has a high fever", "steps": ["Keep them lightly dressed and offer frequent sips of fluid.", "Give fever medicine only at the dose a doctor has advised for their weight.", "Babies under three months with a fever, or children who are very drowsy, breathing fast or not drinking, need urgent care."] },
+    { "department": "eyes", "title": "Something has gone into the eye", "steps": ["Do not rub the eye.", "Rinse gently with clean water.", "For chemicals, keep rinsing for several minutes and go to hospital. For anything stuck in the eye or a cut, cover lightly and go to hospital."] },
+    { "department": "family", "title": "Chest pain or sudden weakness", "steps": ["This is an emergency: go to the nearest hospital immediately or call 108.", "Do not drive yourself."] }
+  ]
+}

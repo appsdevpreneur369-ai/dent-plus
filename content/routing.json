@@ -1,0 +1,21 @@
+{
+  "_note": "Concern chips per department: shown in the department switcher and as booking step 2. Each routes to the doctors who see it and a treatment page in the same department (checked at build).",
+  "status": "approved",
+  "problems": [
+    { "id": "missing-teeth", "department": "dental", "label": "Missing tooth or teeth", "icon": "tooth", "doctors": ["phani-krishna", "deepthi"], "category": "dental-implants" },
+    { "id": "loose-denture", "department": "dental", "label": "Loose or new denture", "icon": "layers", "doctors": ["phani-krishna", "deepthi"], "category": "crowns-bridges-dentures" },
+    { "id": "broken-tooth", "department": "dental", "label": "Broken or cracked tooth", "icon": "zap", "doctors": ["phani-krishna", "deepthi"], "category": "crowns-bridges-dentures" },
+    { "id": "toothache", "department": "dental", "label": "Toothache or swelling", "icon": "activity", "doctors": ["phani-krishna", "deepthi"], "category": "root-canal-and-extractions" },
+    { "id": "cleaning", "department": "dental", "label": "Cleaning or check-up", "icon": "sparkles", "doctors": ["deepthi", "phani-krishna"], "category": "everyday-dental-care" },
+    { "id": "child-teeth", "department": "dental", "label": "My child's teeth", "icon": "baby", "doctors": ["deepthi", "phani-krishna"], "category": "childrens-dental-care" },
+    { "id": "fever-adult", "department": "family", "label": "Fever, cough or cold", "icon": "thermometer", "doctors": ["venugopal-rao", "padmaja-rani"], "category": "family-medicine" },
+    { "id": "bp-sugar", "department": "family", "label": "BP or sugar review", "icon": "heart-pulse", "doctors": ["venugopal-rao", "padmaja-rani"], "category": "family-medicine" },
+    { "id": "health-check", "department": "family", "label": "General health check", "icon": "clipboard-check", "doctors": ["venugopal-rao", "padmaja-rani"], "category": "family-medicine" },
+    { "id": "child-fever", "department": "children", "label": "Child with fever or cough", "icon": "thermometer", "doctors": ["venugopal-rao"], "category": "child-health" },
+    { "id": "child-tummy", "department": "children", "label": "Vomiting or loose motions", "icon": "droplet", "doctors": ["venugopal-rao"], "category": "child-health" },
+    { "id": "child-growth", "department": "children", "label": "Growth, feeding or vaccines", "icon": "sprout", "doctors": ["venugopal-rao"], "category": "child-health" },
+    { "id": "blurred-vision", "department": "eyes", "label": "Blurred vision or glasses", "icon": "glasses", "doctors": ["padmaja-rani"], "category": "eye-care" },
+    { "id": "red-eyes", "department": "eyes", "label": "Red, itchy or watery eyes", "icon": "eye", "doctors": ["padmaja-rani"], "category": "eye-care" },
+    { "id": "eye-strain", "department": "eyes", "label": "Eye strain or headaches", "icon": "monitor", "doctors": ["padmaja-rani"], "category": "eye-care" }
+  ]
+}

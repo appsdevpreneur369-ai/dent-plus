@@ -1,0 +1,24 @@
+{
+  "_note": "Every image the site shows. All photos are the clinic's OWN (images/, owner 27 Oct 2026), built by scripts/build-photos.mjs: no stock photos. Patients' eyes are blurred. The stock-model posters are never used. Logo: brand/dent-plus-mark.svg (redrawn from images/logo.jpeg, approved by the owner 27 Oct 2026); npm run brand writes the PNG sizes and the OG card.",
+  "logo": {
+    "mark": { "src": "/brand/logo-mark.png", "width": 512, "height": 512, "alt": "Dent Plus logo: white tooth with an implant and a blue plus sign on a navy tile", "status": "approved" },
+    "source": { "src": "brand/dent-plus-mark.svg", "_note": "Vector master. Edit here, then npm run brand." }
+  },
+  "images": {
+    "og": { "src": "/images/og.png", "width": 1200, "height": 630, "alt": "Dent Plus Multi Speciality Dental & Family Clinic, Lakshmipuram, Guntur", "status": "approved" },
+    "clinic-operatory": { "src": "/images/photos/clinic-operatory.jpg", "width": 1600, "height": 1200, "alt": "Dental chair and treatment unit in the Dent Plus treatment room", "status": "approved", "objectPosition": "50% 60%" },
+    "clinic-operatory-chair": { "src": "/images/photos/clinic-operatory-chair.jpg", "width": 1200, "height": 1600, "alt": "Dental chair with its overhead light, ready for the next patient", "status": "approved", "objectPosition": "50% 55%" },
+    "clinic-signboard-night": { "src": "/images/photos/clinic-signboard-night.jpg", "width": 1600, "height": 720, "alt": "Lit Dent Plus signboard at night listing the four doctors and the appointment numbers", "status": "approved", "objectPosition": "50% 40%" },
+    "clinic-signboard-telugu": { "src": "/images/photos/clinic-signboard-telugu.jpg", "width": 1200, "height": 1600, "alt": "Glowing tooth-shaped Dent Plus sign with the clinic name in Telugu", "status": "approved", "objectPosition": "50% 35%" },
+    "clinic-waiting": { "src": "/images/photos/clinic-waiting.jpg", "width": 1200, "height": 1600, "alt": "Waiting area with steel bench seating under the air conditioner", "status": "approved", "objectPosition": "50% 60%" },
+    "clinic-corridor": { "src": "/images/photos/clinic-corridor.jpg", "width": 1200, "height": 1600, "alt": "Corridor with the door to the family and eye care room and waiting chairs", "status": "approved", "objectPosition": "50% 55%" },
+    "clinic-reception": { "src": "/images/photos/clinic-reception.jpg", "width": 840, "height": 1200, "alt": "Doorway to the family and eye care consulting room beside reception", "status": "approved", "objectPosition": "50% 45%" },
+    "clinic-family-eye-care": { "src": "/images/photos/clinic-family-eye-care.jpg", "width": 1200, "height": 1600, "alt": "Frosted glass door marked Family & Eye Care with family, stethoscope and eye symbols", "status": "approved", "objectPosition": "50% 40%" },
+    "clinic-smile-wall": { "src": "/images/photos/clinic-smile-wall.jpg", "width": 1200, "height": 1600, "alt": "Wall lettering reading Make your smile brighter with us, beside the consulting room", "status": "approved", "objectPosition": "40% 40%" },
+    "treatment-in-progress": { "src": "/images/photos/treatment-in-progress.jpg", "width": 1200, "height": 1600, "alt": "Dentist treating a patient in the dental chair (patient's face blurred)", "status": "approved", "objectPosition": "50% 55%" },
+    "treatment-team": { "src": "/images/photos/treatment-team.jpg", "width": 1600, "height": 1200, "alt": "Dentist and assistant at work during a dental procedure (patient's face blurred)", "status": "approved", "objectPosition": "30% 55%" },
+    "treatment-close": { "src": "/images/photos/treatment-close.jpg", "width": 1200, "height": 1600, "alt": "Dentist examining a patient's teeth under the chair light (patient's eyes blurred)", "status": "approved", "objectPosition": "55% 55%" },
+    "treatment-room-wide": { "src": "/images/photos/treatment-room-wide.jpg", "width": 1200, "height": 1600, "alt": "Treatment room with the dental unit and an assistant preparing instruments", "status": "approved", "objectPosition": "50% 50%" },
+    "doctor-deepthi-at-work": { "src": "/images/photos/doctor-deepthi-at-work.jpg", "width": 760, "height": 760, "alt": "Dr. B. Deepthi treating a patient at Dent Plus (patient's eyes blurred)", "status": "approved", "objectPosition": "45% 30%" }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "approved",
+  "_note": "Dent Plus palette (owner, 27 Oct 2026): primary blue #1E4D7D, dark navy #221F45; sky #2E9FE6 is the logo's '+' circle (decoration, icons and fills only; as text only on navy, via skyOnDark). No red anywhere: warnings are amber. Colours become CSS variables (src/lib/theme.ts) and the ClinicFlow theme tokens (npm run tenant). Run `npm run contrast` after any change.",
+  "colors": {
+    "primary": "#1E4D7D",
+    "primaryHover": "#173F69",
+    "primaryDeep": "#133458",
+    "navy": "#221F45",
+    "navySoft": "#2E2B58",
+    "sky": "#2E9FE6",
+    "skyOnDark": "#8ACDF5",
+    "skySoft": "#E9F5FD",
+    "tint": "#EEF3F9",
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "surfaceAlt": "#F6F8FB",
+    "text": "#17203A",
+    "textSecondary": "#4B5873",
+    "border": "#DCE3EE",
+    "onDark": "#FFFFFF",
+    "onDarkMuted": "#C5C9E0",
+    "success": "#156B47",
+    "successSoft": "#E7F5EE",
+    "warning": "#9A4A0C",
+    "warningText": "#7F3C0A",
+    "warningSoft": "#FDF1E0",
+    "whatsapp": "#0F7A43"
+  },
+  "fonts": { "heading": "Outfit", "body": "Figtree" },
+  "radius": "1rem",
+  "wordmark": { "primary": "Dent Plus", "secondary": "Dental & Family Clinic" }
+}
