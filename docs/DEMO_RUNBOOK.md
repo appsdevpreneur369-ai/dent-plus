@@ -15,7 +15,7 @@ Who you are meeting: **Dr. G. Phani Krishna** (prosthodontist & implantologist, 
 |---|---|---|
 | Their own website (logo, colours, four departments, doctors, own photos) | ✅ built · ⏳ staging deploy | Show it on the phone |
 | Booking by **department or by doctor** (dental, paediatrician, eye doctor) | ✅ built · ⏳ live once onboarded | Book the paediatrician or eye doctor live, not only dental |
-| Patient gets a WhatsApp | ⚠️ Staging WhatsApp is **dry-run**: nothing reaches a phone | Show the message texts (section 5). Only switch it on with the owner's go (AISHWARYA "Demo WhatsApp switch") |
+| Patient gets a WhatsApp | ⚠️ Staging WhatsApp is **dry-run**: nothing reaches a phone | Show the message texts (section 5). To switch it on (owner's go): **don't** route traffic to `00107-tm8` (AISHWARYA's switch) — that revision lacks the Dent Plus CORS origin and website booking would fall back. Apply the WhatsApp env vars on the latest revision with `--update-env-vars` instead, and remove them after |
 | Admin sees today's appointments for all four doctors | ✅ core | Show it |
 | Live queue with **token number** | ✅ core (Token N, position #, refreshes every 30 s) | Show it |
 | Queue **estimated waiting time** | ❌ **not built** | Don't promise it. "Next on the roadmap" only if asked |
@@ -44,6 +44,7 @@ Who you are meeting: **Dr. G. Phani Krishna** (prosthodontist & implantologist, 
 - [ ] **Today's schedules** exist for the doctors you will book (free slots after the meeting time)
 - [ ] One dry-run booking each for the **paediatrician** and the **eye doctor**, then cancel them
 - [ ] Demo patients visible: Patients → search "Demo" (Lakshmi, Arjun, Saroja)
+- [ ] Thursday already has **3 kept test bookings** from the staging e2e (owner: keep them, so the day's list isn't empty), all named **"Test Patient"**: 10:00 Dr. Venugopal Rao (child with fever), 14:30 Dr. Padmaja Rani (eye strain), 19:15 Dr. Phani Krishna (missing tooth). If asked: "test bookings from this week's checks". Pick other slots for the live booking.
 
 **T − 30 min: keep website and API warm (no 50-second cold start)**
 ```bash
@@ -126,7 +127,8 @@ gcloud run services update clinicflow-api-staging --project sincere-stock-499113
 | Next step (+12 h) | Request for honest feedback + link to the Google review page |
 | ~2–3 days later, **only if the link wasn't tapped** | One gentle reminder, then nothing more |
 
-- Patients → search **"Demo"**: **Lakshmi** (dental, thank-you scheduled), **Arjun** (child, review request sent), **Saroja** (eyes, reminder sent).
+- Patients → search **"Demo"** (stages verified on staging 27 Oct, dry-run): **Saroja** (eyes): thank-you, review request and reminder all sent · **Arjun** (child): thank-you + review request sent, reminder due 30 Oct · **Lakshmi** (dental): by Thursday her thank-you (due 28 Oct 02:03 IST) and review request (28 Oct 14:03 IST) will also show as sent.
+- **"Thank-you scheduled"** is shown by the visit the doctor ends live in section 7: it appears as PENDING, due ~2 h later.
 - **Say:** "Every patient gets the same polite request; Google doesn't allow asking only happy patients. No medical details in messages."
 - **Be honest:** "Your Google listing link is needed for the real review link; today it's a stand-in." Requests currently go out ~14 h after the visit with no quiet hours (core gap; may arrive at night).
 

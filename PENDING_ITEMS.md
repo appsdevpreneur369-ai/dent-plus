@@ -42,12 +42,12 @@ Updated 27 Oct 2026 (night). Everything not confirmed is shown on the site as Dr
 - The signboard's second mark (red heart with family + stethoscope) is not used (no-red rule).
 
 ## Needs the owner's yes (not done)
-- [ ] GitHub repo + push.
-- [ ] Staging onboarding (`scripts/staging/setup-staging.py`: import, ACTIVE, dental suite, logo + favicon upload, schedules, review link).
-- [ ] Add the site origin to staging API CORS (`--update-env-vars`, keep all existing origins).
-- [ ] Deploy `dpc-frontend-staging` (256Mi, min 0).
-- [ ] Post-visit demo data (`scripts/staging/seed-post-visit-demo.py`, 3 demo patients).
-- [ ] Booking e2e against staging (9 checks; locally 4/9 without an API, the rest need the onboarded clinic).
+- [x] GitHub: https://github.com/appsdevpreneur369-ai/dent-plus (27 Oct, public; raw patient photos and banners git-ignored).
+- [x] Staging onboarding (27 Oct, run by the owner; re-run to add Dr. Phani Krishna after a placeholder-licence clash).
+- [x] Staging API CORS += DPC origin (27 Oct, `clinicflow-api-staging-00109-tgx`, 8 existing origins kept).
+- [x] Deploy `dpc-frontend-staging` (27 Oct, `00001-pqt`, 256Mi, min 0).
+- [x] Post-visit demo data (27 Oct): Lakshmi / Arjun / Saroja Demo + SQL phases A and B.
+- [x] Booking e2e against staging: 9/9 (27 Oct). Its 3 "Test Patient" bookings on Thu 29 Oct are kept (owner).
 - [ ] Places API key for live Google reviews (only if a Google listing exists).
 - [ ] Before the meeting: `dpc-frontend-staging` and `clinicflow-api-staging` min-instances 1; back to 0 after.
 - [ ] Staging WhatsApp ON right before the demo, OFF after (same switch as AISHWARYA; check no core deploy is running).
@@ -59,6 +59,8 @@ Updated 27 Oct 2026 (night). Everything not confirmed is shown on the site as Dr
 - Draft badges show on staging (`NEXT_PUBLIC_SHOW_PLACEHOLDER_BADGES=true`), hidden in production builds.
 
 ## Core (ClinicFlow), reported, not patched here
+- [ ] **Placeholder registration numbers collide across clinics**: `mciRegistrationNumber` is unique platform-wide, so the importer's placeholder convention `PENDING-VERIFICATION-<FIRSTNAME>` fails (`DOCTOR_LICENSE_ALREADY_EXISTS`) when another clinic has a doctor with the same first name. Worked around here with a clinic prefix; the importer reports the failure only as a flag and continues.
+- [ ] The staging API logs every SQL statement (Hibernate show-sql), which buries the `[WhatsApp DRY RUN]` lines needed to show message texts in a demo.
 Carried over from `D:\AISHWARYA\PENDING_ITEMS.md` (still open there on 27 Oct 2026); re-check before the demo:
 - [ ] Staging email intermittently fails (Gmail SMTP `Broken pipe` / TLS); invites and resets may need re-sending.
 - [ ] Staff created without a password stay inactive until the invite is used; no admin "resend invite" (workaround `POST /auth/forgot-password`).

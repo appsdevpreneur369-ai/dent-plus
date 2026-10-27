@@ -6,7 +6,7 @@ Public website for **Dent Plus Multi Speciality Dental & Family Clinic**, D.No 5
 
 **What makes it different from the other clinic sites:** it is **multi-speciality**. Four departments: Dental (prosthodontics & implants lead), Family medicine, Paediatrics (children), Eye care. Every doctor maps to a department; booking starts by department or by doctor.
 
-Status (27 Oct 2026, night): **site built and checked locally** (45 pages; `npm run check` green). Logo SVG approved by the owner. Git initialised, **nothing committed or pushed**. **Nothing on staging yet**: onboarding, CORS, deploy and demo data wait for the owner's yes (Wednesday evening). Open items: `PENDING_ITEMS.md`. Demo runbook: `docs/DEMO_RUNBOOK.md`.
+Status (27 Oct 2026, night): **site built and checked locally** (45 pages; `npm run check` green). Logo SVG approved by the owner. Repo https://github.com/appsdevpreneur369-ai/dent-plus (`main`, public: raw patient photos and stock-model banners are git-ignored). **Website on staging** (`dpc-frontend-staging-00001-pqt`); staging API CORS includes it (`00109-tgx`). **Clinic onboarded on staging** (27 Oct, owner ran setup-staging.py twice): clinic `9692c5b1-c024-4f48-a248-afa6d022eb3d`, ACTIVE, ENTERPRISE, branch `3f8a1ccf-…`, dental suite ON, logo + favicon, review link = Google *search* stand-in (`--demo-review-link`), 4 doctors with 15-min slots Mon–Sat 09:30–21:00 (Phani Krishna `89525fef-…`, Deepthi `e1507a60-…`, Venugopal Rao `10c8faff-…`, Padmaja Rani `21317f18-…`). First run left Dr. Phani Krishna out: `DOCTOR_LICENSE_ALREADY_EXISTS` (placeholder `PENDING-VERIFICATION-PHANI` was taken by another staging clinic) → placeholders are now `PENDING-VERIFICATION-DPC-<NAME>` (the three first-run doctors keep the old placeholders on staging). Demo seed: Lakshmi / Arjun / Saroja Demo (dental / child / eyes); SQL phases A and B run with `scripts/staging/run-demo-sql.py` (credentials from Secret Manager, never printed). Booking e2e on staging **9/9**; its 3 "Test Patient" bookings on Thu 29 Oct are kept on purpose (owner). Open items: `PENDING_ITEMS.md`. Demo runbook: `docs/DEMO_RUNBOOK.md`.
 
 ### Local QA (27 Oct 2026)
 | Check | Result |
@@ -19,7 +19,7 @@ Status (27 Oct 2026, night): **site built and checked locally** (45 pages; `npm 
 | JSON-LD (`scripts/qa/seo-audit.mjs`, local schema.org vocab) | ✅ 0 errors on 36 pages (MedicalClinic+Dentist, Dentist/Physician departments, IndividualPhysician ×4, MedicalWebPage, FAQPage, Article) |
 | Lighthouse home (local) | mobile P92 A100 BP100 · desktop P100 A100 BP100 (SEO 69 = noindex on non-production, by design) |
 | Other clinics' names in build output | ✅ none |
-| Booking e2e (`scripts/qa/e2e-booking.mjs`, 9 checks) | ⏳ locally 4/9 (no API: fallback/deep-link checks pass, every flow walks to the OTP step); live 9/9 needs the onboarded staging clinic |
+| Booking e2e (`scripts/qa/e2e-booking.mjs`, 9 checks) | ✅ **9/9 on staging** (27 Oct): paediatrician via hero card, dentist with doctor step, eye doctor from her page, email-taken message, no popup, enquiry + WhatsApp fallbacks, 2 deep links |
 | Side-by-side with AISHWARYA home | `docs/screenshots/compare-aishwarya-1280.jpg`, `-360.jpg` |
 
 ## Hard rules
@@ -85,6 +85,7 @@ Home layout: split hero (clinic's own photo + "Book in 30 seconds" card) · depa
 | `node scripts/qa/screens.mjs <base> qa/screens` | 360/768/1280 screenshots, overflow + tap-target report |
 | `node scripts/qa/e2e-booking.mjs <base> qa/e2e` | Booking e2e, 9 checks (local or staging, never production; test phones 90000115xx) |
 | `python scripts/staging/setup-staging.py --admin-email <sa> [--demo-review-link]` | **Owner's yes first.** Onboard on staging: import, ACTIVE, dental suite, logo/favicon, 4 doctors' slots + schedules, review link (stand-in with the flag) |
+| `python scripts/staging/run-demo-sql.py qa/staging/post-visit-demo-phaseA.sql` (then `-phaseB.sql`, or `--status`) | **Owner's yes first.** Runs the seed's SQL on the staging DB (credentials from Secret Manager, never printed; only those two files, UPDATEs only, one transaction) |
 | `python scripts/staging/seed-post-visit-demo.py --admin-email <sa> [--clicked]` | **Owner's yes first.** 3 demo patients, one per department (dental / child / eyes), at the thank-you / review request / reminder stages + 2 SQL files |
 
 Local builds on this machine may need `NEXT_BUILD_CPUS=1` (low free RAM). In Git Bash, prefix scripts that take `/paths` with `MSYS_NO_PATHCONV=1`.
@@ -106,7 +107,8 @@ History (staging):
 
 | Date | Commit / image tag | Revision | Notes |
 | --- | --- | --- | --- |
-| — | — | — | Nothing deployed yet. |
+| 2026-10-27 | (ClinicFlow API, env only) | `clinicflow-api-staging-00109-tgx` | Owner's yes. `APP_CORS_ALLOWEDORIGINS` += DPC origin, the 8 existing origins kept (rollback `00108-s62`). Env diff vs `00108-s62` = CORS only (WhatsApp still dry-run). Verified DPC/ADC/SPDC allowed, unknown origin 403, no ERROR logs. **Note:** AISHWARYA's "WhatsApp ON" switch routes to `00107-tm8`, which lacks the DPC origin: for a WhatsApp demo re-apply the WhatsApp env vars on the latest revision instead. |
+| 2026-10-27 | `9ea2428` | `dpc-frontend-staging-00001-pqt` | First deploy (Cloud Build `51e63003`), 256Mi, 1 CPU, min 0. 33 URLs 200, 404 page, `X-Robots-Tag: noindex` + robots Disallow + meta noindex, `/login` 307 to the staging portal clinic login, Draft badges on, no other clinic names, no ERROR logs. |
 
 ## Timeline
 

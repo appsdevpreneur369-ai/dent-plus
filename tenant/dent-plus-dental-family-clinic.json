@@ -98,7 +98,7 @@
       "firstName": "Phani Krishna",
       "lastName": "G",
       "phone": null,
-      "mciRegistrationNumber": "PENDING-VERIFICATION-PHANI",
+      "mciRegistrationNumber": "PENDING-VERIFICATION-DPC-PHANI",
       "specialization": "Prosthodontist & Implantologist (Dental care)",
       "qualification": "MDS (SRM); FICOI (USA)",
       "bio": "Dr. Phani Krishna holds an MDS from SRM and a fellowship of the International Congress of Oral Implantologists (FICOI, USA). Prosthodontics is the branch of dentistry that restores and replaces teeth, so his day-to-day work centres on implants, crowns, bridges and dentures. Besides seeing patients at Dent Plus, he is a professor at Sibar Institute of Dental Sciences. At the clinic he plans implant and denture cases with you step by step, explaining the options that suit your mouth, your health and your budget before anything begins.",
@@ -110,7 +110,7 @@
       "firstName": "Deepthi",
       "lastName": "B",
       "phone": null,
-      "mciRegistrationNumber": "PENDING-VERIFICATION-DEEPTHI",
+      "mciRegistrationNumber": "PENDING-VERIFICATION-DPC-DEEPTHI",
       "specialization": "Consultant Prosthodontist & Implantologist (Dental care)",
       "qualification": "MDS (OSM)",
       "bio": "Dr. Deepthi holds an MDS and works at Dent Plus as a consultant prosthodontist and implantologist, restoring worn, broken and missing teeth with crowns, bridges, dentures and implants. She also sees patients for routine check-ups, fillings and cleaning, and for children's dental visits, so a whole family can be looked after by the same dental team."
@@ -121,7 +121,7 @@
       "firstName": "Venugopal Rao",
       "lastName": "G",
       "phone": null,
-      "mciRegistrationNumber": "PENDING-VERIFICATION-VENUGOPAL",
+      "mciRegistrationNumber": "PENDING-VERIFICATION-DPC-VENUGOPAL",
       "specialization": "Consultant Family Physician & Paediatrician (Children's health, Family medicine)",
       "qualification": "MBBS, Senior Resident (Paediatrics)",
       "bio": "Dr. Venugopal Rao holds an MBBS and has worked as a senior resident in paediatrics. At Dent Plus he is the consulting family physician and paediatrician. Parents bring babies and children to him for fevers, coughs, tummy upsets and growth questions; adults see him for everyday illness and check-ups. When a child or adult needs tests or a hospital, he explains why and where to go."
@@ -132,7 +132,7 @@
       "firstName": "Padmaja Rani",
       "lastName": "T",
       "phone": null,
-      "mciRegistrationNumber": "PENDING-VERIFICATION-PADMAJA",
+      "mciRegistrationNumber": "PENDING-VERIFICATION-DPC-PADMAJA",
       "specialization": "Consultant Family Physician & Ophthalmologist (Eye care, Family medicine)",
       "qualification": "MBBS, D.O.",
       "bio": "Dr. Padmaja Rani holds an MBBS and a Diploma in Ophthalmology (D.O.). She is the clinic's consulting family physician and eye doctor. She checks vision and eye health, sees patients with red, watery, itchy or strained eyes, and arranges referral to a surgical eye centre when an operation such as cataract surgery is needed. She also sees adults for general medical problems."
@@ -230,7 +230,7 @@
   "contentPages": [],
   "flags": [
     "DPC: plan ENTERPRISE (white label) on the shared portal -- theme tokens and appTitle applied; logo (public/brand/logo-mark.png) and favicon (src/app/icon.png) uploaded by setup-staging.py.",
-    "DPC: all four doctors use placeholder mciRegistrationNumber PENDING-VERIFICATION-<NAME>; replace with the State Dental / Medical Council numbers before any real e-prescription.",
+    "DPC: all four doctors use placeholder mciRegistrationNumber PENDING-VERIFICATION-DPC-<NAME> (clinic-scoped: registration numbers are unique across the whole platform, and PENDING-VERIFICATION-PHANI was already taken on staging, 27 Oct 2026); replace with the State Dental / Medical Council numbers before any real e-prescription.",
     "DPC: clinic email not confirmed (null). Phones +919440919770 / +919247591847 and WhatsApp +919440919770 approved by the owner (27 Oct 2026).",
     "DPC: googleReviewLink NOT set (placeholder, no Google listing confirmed) -- no review requests until it is.",
     "DPC: hours Mon-Sat 09:30-21:00 continuous, Sunday closed (owner). Each doctor gets the clinic hours until their own are confirmed.",

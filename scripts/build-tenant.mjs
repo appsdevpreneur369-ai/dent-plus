@@ -117,7 +117,7 @@ const tenant = {
     firstName: d.firstName,
     lastName: d.lastName || '.',
     phone: null,
-    mciRegistrationNumber: d.registrationNumber || `PENDING-VERIFICATION-${d.firstName.split(' ')[0].toUpperCase()}`,
+    mciRegistrationNumber: d.registrationNumber || `PENDING-VERIFICATION-DPC-${d.firstName.split(" ")[0].toUpperCase()}`,
     specialization: `${d.specialty} (${d.departments.map((x) => deptTitle[x]).join(', ')})`,
     qualification: d.qualification,
     bio: d.bio.join(' '),
@@ -135,7 +135,7 @@ const tenant = {
   contentPages: [],
   flags: [
     'DPC: plan ENTERPRISE (white label) on the shared portal -- theme tokens and appTitle applied; logo (public/brand/logo-mark.png) and favicon (src/app/icon.png) uploaded by setup-staging.py.',
-    'DPC: all four doctors use placeholder mciRegistrationNumber PENDING-VERIFICATION-<NAME>; replace with the State Dental / Medical Council numbers before any real e-prescription.',
+    'DPC: all four doctors use placeholder mciRegistrationNumber PENDING-VERIFICATION-DPC-<NAME> (clinic-scoped: registration numbers are unique across the whole platform, and PENDING-VERIFICATION-PHANI was already taken on staging, 27 Oct 2026); replace with the State Dental / Medical Council numbers before any real e-prescription.',
     'DPC: clinic email not confirmed (null). Phones +919440919770 / +919247591847 and WhatsApp +919440919770 approved by the owner (27 Oct 2026).',
     `DPC: googleReviewLink ${review.status === 'approved' ? 'set' : 'NOT set (placeholder, no Google listing confirmed) -- no review requests until it is'}.`,
     'DPC: hours Mon-Sat 09:30-21:00 continuous, Sunday closed (owner). Each doctor gets the clinic hours until their own are confirmed.',
