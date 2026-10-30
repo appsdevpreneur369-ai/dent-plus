@@ -15,7 +15,7 @@ Who you are meeting: **Dr. G. Phani Krishna** (prosthodontist & implantologist, 
 |---|---|---|
 | Their own website (logo, colours, four departments, doctors, own photos) | ✅ built · ⏳ staging deploy | Show it on the phone |
 | Booking by **department or by doctor** (dental, paediatrician, eye doctor) | ✅ built · ⏳ live once onboarded | Book the paediatrician or eye doctor live, not only dental |
-| Patient gets a WhatsApp | ⚠️ Staging WhatsApp is **dry-run**: nothing reaches a phone | Show the message texts (section 5). To switch it on (owner's go): **don't** route traffic to `00107-tm8` (AISHWARYA's switch) — that revision lacks the Dent Plus CORS origin and website booking would fall back. Apply the WhatsApp env vars on the latest revision with `--update-env-vars` instead, and remove them after |
+| Patient gets a WhatsApp | ✅ **Live on staging** (30 Oct, owner's yes, `clinicflow-api-staging-00113-6ns`): booking confirmation, reminder (2 h before), thank-you, review request + review reminder. SMS stays test mode (OTP 123456). Applies to **every** staging clinic: switch the three new templates off after the demo (section 13) | Book with a **real** WhatsApp number; 90000… test numbers get nothing |
 | Admin sees today's appointments for all four doctors | ✅ core | Show it |
 | Live queue with **token number** | ✅ core (Token N, position #, refreshes every 30 s) | Show it |
 | Queue **estimated waiting time** | ❌ **not built** | Don't promise it. "Next on the roadmap" only if asked |
@@ -98,6 +98,15 @@ gcloud run services update clinicflow-api-staging --project sincere-stock-499113
 
 ---
 
+### 5b. Live WhatsApp in the meeting (owner's phone)
+1. **Booking confirmation:** book on the site with the owner's real mobile → WhatsApp within a minute.
+2. **Reminder:** book a slot about **2 h 05 min** ahead → the reminder arrives within ~10 min (job every 10 min).
+3. **Thank-you + review request** (after "Finalise & end visit" in section 7):
+   `python scripts/staging/run-demo-sql.py --recent` → copy the appointment id →
+   `python scripts/staging/run-demo-sql.py --pull-forward <id>` → both arrive at the next job run (≤ 10 min).
+4. **Review reminder:** once the request shows SENT: `--pull-forward <id> --review-reminder`.
+   Only that one Dent Plus appointment changes; the script refuses any other clinic's appointment.
+
 ## 6. CLINIC ADMIN: today at the front desk (6 minutes, Chrome)
 
 1. Sign in on the **branded login** (Dent Plus logo, no ClinicFlow247 name).
@@ -171,6 +180,7 @@ gcloud run services update clinicflow-api-staging --project sincere-stock-499113
 - [ ] Which feature mattered most today?
 
 ## 13. After the meeting
+- **WhatsApp off again** (owner's go): `gcloud run services update-traffic clinicflow-api-staging --project sincere-stock-499113-f1 --region asia-south1 --to-revisions clinicflow-api-staging-00112-5kw=100` only if no newer core revision exists; otherwise `--update-env-vars MSG91_WA_TEMPLATE_APPT_REMINDER=,MSG91_WA_TEMPLATE_REVIEW_REQUEST=,MSG91_WA_TEMPLATE_REVIEW_REMINDER=` (confirmation + thank-you were already on before 30 Oct).
 
 - [ ] Scale back to zero:
   ```bash
