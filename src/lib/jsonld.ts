@@ -48,7 +48,7 @@ export function clinicJsonLd() {
     url: absoluteUrl('/'),
     logo: { '@type': 'ImageObject', url: absoluteUrl(logo.src), width: logo.width, height: logo.height },
     // The clinic's own photos (images/, supplied by the owner).
-    image: ['clinic-signboard-night', 'clinic-operatory', 'og'].map((id) => absoluteUrl(getImage(id).src)),
+    image: ['clinic-name-board', 'treatment-in-progress', 'clinic-operatory', 'og'].map((id) => absoluteUrl(getImage(id).src)),
     ...(channels.call ? { telephone: channels.call.href.slice(4) } : {}),
     ...(channels.email ? { email: channels.email.display } : {}),
     address: postalAddress(),

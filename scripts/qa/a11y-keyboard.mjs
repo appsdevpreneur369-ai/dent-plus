@@ -64,9 +64,11 @@ const active = (page) => page.evaluate(() => {
   await page.focus('button[aria-controls=mobile-menu]');
   await page.keyboard.press('Enter');
   const expanded = await page.$eval('button[aria-controls=mobile-menu]', (b) => b.getAttribute('aria-expanded'));
+  // The open sheet must really be on screen (30 Oct 2026: it opened at 0px height and the toggle check alone passed).
+  const sheet = await page.$eval('#mobile-menu', (m) => Math.round(m.getBoundingClientRect().height));
   await page.keyboard.press('Escape');
   const collapsed = await page.$eval('button[aria-controls=mobile-menu]', (b) => b.getAttribute('aria-expanded'));
-  check('mobile menu toggles by keyboard, Esc closes', expanded === 'true' && collapsed === 'false', `${expanded}/${collapsed}`);
+  check('mobile menu toggles by keyboard, is visible, Esc closes', expanded === 'true' && collapsed === 'false' && sheet > 300, `${expanded}/${collapsed}, sheet ${sheet}px`);
   await page.close();
 }
 

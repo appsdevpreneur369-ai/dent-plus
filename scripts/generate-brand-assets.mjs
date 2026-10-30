@@ -61,9 +61,26 @@ pngs.forEach((p, i) => {
 });
 fs.writeFileSync(out('src/app/favicon.ico'), Buffer.concat([header, ...pngs]));
 
-// ---------- Open Graph card (1200x630): navy, mark, wordmark, the four departments ----------
+// ---------- Open Graph card (1200x630): the clinic's lit name board (owner's photo, 30 Oct 2026) over a navy strip ----------
+// The board is what patients recognise; link previews on WhatsApp show it. Falls back to a drawn card without the photo.
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-const og = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+const boardPhoto = out('public/images/photos/clinic-name-board.jpg');
+if (fs.existsSync(boardPhoto)) {
+  const strip = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92">
+  <rect width="1200" height="92" fill="${c.navy}"/>
+  <text x="108" y="44" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="${c.onDark}">${esc(wordmark.primary)} <tspan fill="${c.skyOnDark}" font-size="22" letter-spacing="3">${esc(wordmark.secondary.toUpperCase())}</tspan></text>
+  <text x="108" y="76" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="${c.onDarkMuted}">${esc(clinic.tagline.value)} · ${esc(departments.map((d) => d.shortTitle).join(' · '))} · ${esc(clinic.address.locality)}</text>
+</svg>`);
+  await sharp({ create: { width: 1200, height: 630, channels: 3, background: c.navy } })
+    .composite([
+      { input: await sharp(boardPhoto).resize(1200, 538, { fit: 'cover' }).toBuffer(), left: 0, top: 0 },
+      { input: strip, left: 0, top: 538 },
+      { input: await png(markSvg(), 68), left: 24, top: 550 },
+    ])
+    .png({ compressionLevel: 9 })
+    .toFile(out('public/images/og.png'));
+} else {
+  const og = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <rect width="1200" height="630" fill="${c.navy}"/>
   <circle cx="1130" cy="40" r="300" fill="none" stroke="${c.sky}" stroke-opacity=".35" stroke-width="56"/>
   <text x="380" y="245" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" letter-spacing="-3" fill="${c.onDark}">${esc(wordmark.primary)}</text>
@@ -71,6 +88,7 @@ const og = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" hei
   <text x="384" y="370" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="${c.onDarkMuted}">${esc(clinic.tagline.value)} · ${esc(clinic.address.locality)}</text>
   ${departments.map((d, i) => `<rect x="${384 + i * 190}" y="420" width="176" height="56" rx="28" fill="none" stroke="${c.onDark}" stroke-opacity=".35" stroke-width="2"/><text x="${384 + i * 190 + 88}" y="456" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="${c.onDark}">${esc(d.shortTitle)}</text>`).join('')}
 </svg>`);
-await sharp(og).composite([{ input: await png(markSvg(), 250), left: 90, top: 150 }]).png({ compressionLevel: 9 }).toFile(out('public/images/og.png'));
+  await sharp(og).composite([{ input: await png(markSvg(), 250), left: 90, top: 150 }]).png({ compressionLevel: 9 }).toFile(out('public/images/og.png'));
+}
 
 console.log('brand assets written from brand/dent-plus-mark.svg');

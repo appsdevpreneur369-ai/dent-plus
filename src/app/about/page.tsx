@@ -6,6 +6,7 @@ import { SectionHead } from '@/components/ui/primitives';
 import { getImage, siteAbout, siteDoctors, sitePages, sitePlan } from '@/lib/content';
 import { patientBenefits } from '@/lib/plan';
 import { pageMetadata } from '@/lib/seo';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 const p = sitePages.about;
 export const metadata = pageMetadata({ path: '/about', title: p.title, description: p.description });
@@ -21,8 +22,9 @@ export default function AboutPage() {
         intro={p.intro}
         crumbs={[{ name: 'About', path: '/about' }]}
         aside={
-          <div className="relative aspect-[16/9] overflow-hidden rounded-brand border border-border">
-            <Image src={header.src} alt={header.alt} fill priority sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" style={{ objectPosition: header.objectPosition }} />
+          // Frame takes the photo's own proportions: the wide name board must show every letter, nothing cropped.
+          <div className="relative overflow-hidden rounded-brand border border-border bg-navy" style={{ aspectRatio: `${header.width} / ${header.height}` }}>
+            <Image src={header.src} alt={header.alt} fill priority sizes="(min-width: 1024px) 34vw, 100vw" className={fitClass(header)} style={fitStyle(header)} />
           </div>
         }
       />
@@ -37,7 +39,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="relative aspect-[3/4] overflow-hidden rounded-brand border border-border">
-            <Image src={story.src} alt={story.alt} fill sizes="(min-width: 1024px) 35vw, 100vw" className="object-cover" style={{ objectPosition: story.objectPosition }} />
+            <Image src={story.src} alt={story.alt} fill sizes="(min-width: 1024px) 35vw, 100vw" className={fitClass(story)} style={fitStyle(story)} />
           </div>
         </div>
       </section>

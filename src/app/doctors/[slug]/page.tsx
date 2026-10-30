@@ -11,6 +11,7 @@ import { categories, getDepartment, getDoctor, getImage, siteDoctors } from '@/l
 import { dayRangeShort, formatSessions } from '@/lib/hours';
 import { physicianJsonLd } from '@/lib/jsonld';
 import { pageMetadata } from '@/lib/seo';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 export const dynamicParams = false;
 export const generateStaticParams = () => siteDoctors.map((d) => ({ slug: d.slug }));
@@ -39,7 +40,7 @@ export default function DoctorPage({ params }: { params: { slug: string } }) {
         ]}
         aside={
           <div className="relative mx-auto aspect-square w-full max-w-[20rem] overflow-hidden rounded-brand border border-border lg:mx-0 lg:ml-auto">
-            {photo ? <Image src={photo.src} alt={photo.alt} fill priority sizes="20rem" className="object-cover" style={{ objectPosition: photo.objectPosition }} /> : <Initials initials={d.initials} className="h-full w-full text-7xl" />}
+            {photo ? <Image src={photo.src} alt={photo.alt} fill priority sizes="20rem" className={fitClass(photo)} style={fitStyle(photo)} /> : <Initials initials={d.initials} className="h-full w-full text-7xl" />}
           </div>
         }
       >

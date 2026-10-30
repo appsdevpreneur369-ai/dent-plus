@@ -1,16 +1,16 @@
 import {
-  Activity, ArrowRight, ArrowUpRight, Baby, Calendar, CalendarCheck, Check, ChevronDown, ChevronLeft, ChevronRight, CircleAlert,
-  ClipboardCheck, Clock, Droplet, Eye, FileText, Glasses, HeartPulse, Layers, LoaderCircle, LogIn, Mail, MapPin, Menu, MessageCircle,
+  Activity, ArrowRight, ArrowUpRight, Baby, Bell, Calendar, CalendarCheck, Check, ChevronDown, ChevronLeft, ChevronRight, CircleAlert,
+  ClipboardCheck, Clock, Droplet, Eye, FileText, Glasses, HeartHandshake, HeartPulse, Images, Layers, LoaderCircle, Maximize2, LogIn, Mail, MapPin, Menu, MessageCircle,
   MessageSquare, Monitor, Navigation, Phone, ShieldCheck, Smile, Sparkles, Sprout, Stethoscope, Thermometer, Ticket, TriangleAlert,
   UserPlus, Users, X, Zap, type LucideIcon,
 } from 'lucide-react';
 
 // Content refers to icons by kebab-case name. 'tooth' is our own glyph (lucide has none). Unknown names fall back to a sparkle.
 const ICONS: Record<string, LucideIcon> = {
-  activity: Activity, 'arrow-right': ArrowRight, 'arrow-up-right': ArrowUpRight, baby: Baby, calendar: Calendar, 'calendar-check': CalendarCheck,
+  activity: Activity, 'arrow-right': ArrowRight, 'arrow-up-right': ArrowUpRight, baby: Baby, bell: Bell, calendar: Calendar, 'calendar-check': CalendarCheck,
   check: Check, 'chevron-down': ChevronDown, 'chevron-left': ChevronLeft, 'chevron-right': ChevronRight, 'circle-alert': CircleAlert,
-  'clipboard-check': ClipboardCheck, clock: Clock, droplet: Droplet, eye: Eye, 'file-text': FileText, glasses: Glasses, 'heart-pulse': HeartPulse,
-  layers: Layers, loader: LoaderCircle, 'log-in': LogIn, mail: Mail, 'map-pin': MapPin, menu: Menu, 'message-circle': MessageCircle,
+  'clipboard-check': ClipboardCheck, clock: Clock, droplet: Droplet, eye: Eye, 'file-text': FileText, glasses: Glasses, 'heart-handshake': HeartHandshake, 'heart-pulse': HeartPulse, images: Images,
+  layers: Layers, loader: LoaderCircle, 'log-in': LogIn, mail: Mail, 'map-pin': MapPin, maximize: Maximize2, menu: Menu, 'message-circle': MessageCircle,
   'message-square': MessageSquare, monitor: Monitor, navigation: Navigation, phone: Phone, 'shield-check': ShieldCheck, smile: Smile,
   sparkles: Sparkles, sprout: Sprout, stethoscope: Stethoscope, thermometer: Thermometer, ticket: Ticket, 'triangle-alert': TriangleAlert,
   'user-plus': UserPlus, users: Users, x: X, zap: Zap,

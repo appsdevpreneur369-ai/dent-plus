@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import type { ImageRef, Status } from '@/lib/content/schemas';
 import { SHOW_BADGES } from '@/lib/site';
 import { cn } from '@/lib/cn';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 import { Icon } from './Icon';
 
 /** "Draft" badge on placeholder content — only when NEXT_PUBLIC_SHOW_PLACEHOLDER_BADGES=true. */
@@ -47,7 +48,7 @@ export function Initials({ initials, className }: { initials: string; className?
 
 export function ContentImage({ img, className, priority, sizes, fill }: { img: ImageRef; className?: string; priority?: boolean; sizes?: string; fill?: boolean }) {
   if (fill)
-    return <Image src={img.src} alt={img.alt} fill priority={priority} sizes={sizes ?? '100vw'} className={cn('object-cover', className)} style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined} />;
+    return <Image src={img.src} alt={img.alt} fill priority={priority} sizes={sizes ?? '100vw'} className={cn(fitClass(img), className)} style={fitStyle(img)} />;
   return <Image src={img.src} alt={img.alt} width={img.width} height={img.height} priority={priority} sizes={sizes ?? '(min-width: 1024px) 50vw, 100vw'} className={cn('h-auto w-full object-cover', className)} />;
 }
 

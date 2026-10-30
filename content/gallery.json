@@ -4,17 +4,16 @@
   "intro": "Photos taken at Dent Plus. Patients' faces are blurred to protect their privacy.",
   "categories": ["Outside", "Treatment rooms", "Inside the clinic"],
   "items": [
-    { "image": "clinic-signboard-night", "caption": "The lit board on Ashok Nagar 3rd Lane", "category": "Outside" },
+    { "image": "clinic-name-board", "caption": "Our lit name board on Ashok Nagar 3rd Lane", "category": "Outside" },
     { "image": "clinic-signboard-telugu", "caption": "Our tooth sign, with the clinic name in Telugu", "category": "Outside" },
+    { "image": "hero-clinic", "caption": "Two of our dentists treating a patient", "category": "Treatment rooms" },
     { "image": "clinic-operatory", "caption": "Dental chair and treatment unit", "category": "Treatment rooms" },
     { "image": "clinic-operatory-chair", "caption": "Chair and overhead light", "category": "Treatment rooms" },
     { "image": "treatment-close", "caption": "A dental examination under way", "category": "Treatment rooms" },
-    { "image": "treatment-team", "caption": "Dentist and assistant at work", "category": "Treatment rooms" },
-    { "image": "treatment-room-wide", "caption": "The treatment room", "category": "Treatment rooms" },
-    { "image": "treatment-in-progress", "caption": "Treatment in progress", "category": "Treatment rooms" },
-    { "image": "clinic-family-eye-care", "caption": "Door to the family and eye care room", "category": "Inside the clinic" },
-    { "image": "clinic-corridor", "caption": "Corridor and waiting chairs", "category": "Inside the clinic" },
-    { "image": "clinic-reception", "caption": "Consulting room doorway", "category": "Inside the clinic" },
+    { "image": "treatment-in-progress", "caption": "A young patient in the dental chair", "category": "Treatment rooms" },
+    { "image": "clinic-reception", "caption": "Reception and the family & eye care room", "category": "Inside the clinic" },
+    { "image": "clinic-family-eye-care", "caption": "Family & Eye Care sign", "category": "Inside the clinic" },
+    { "image": "clinic-consultation-room", "caption": "Consultation room", "category": "Inside the clinic" },
     { "image": "clinic-waiting", "caption": "Waiting area", "category": "Inside the clinic" },
     { "image": "clinic-smile-wall", "caption": "Make your smile brighter with us", "category": "Inside the clinic" }
   ]

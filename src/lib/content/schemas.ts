@@ -107,6 +107,8 @@ export const BrandSchema = z.object({
     primary: hex, primaryHover: hex, primaryDeep: hex, navy: hex, navySoft: hex, sky: hex, skyOnDark: hex, skySoft: hex, tint: hex,
     background: hex, surface: hex, surfaceAlt: hex, text: hex, textSecondary: hex, border: hex, onDark: hex, onDarkMuted: hex,
     success: hex, successSoft: hex, warning: hex, warningText: hex, warningSoft: hex, whatsapp: hex,
+    /** Status dots on navy (top info bar): decoration only, never text. */
+    successOnDark: hex, warningOnDark: hex,
   }),
   fonts: z.object({ heading: z.string(), body: z.string() }),
   radius: z.string(),
@@ -154,6 +156,10 @@ export const DepartmentsSchema = z.object({
         title: z.string().min(1),
         shortTitle: z.string().min(1),
         icon: z.string(),
+        /** images.json id of the department's picture (cards on Treatments, Departments and the switcher). */
+        image: z.string(),
+        /** Gradient panel in the page header. Dental: the clinic's own wall banner (quote: true). Others fall back to `line`. */
+        banner: z.object({ label: z.string(), text: z.string(), accent: z.string().optional(), quote: z.boolean().optional() }).optional(),
         /** One line under the tab in the department switcher. */
         line: z.string().min(1),
         summary: z.string().min(1),
@@ -280,11 +286,18 @@ export const HomeSchema = z.object({
   hero: z.object({
     eyebrow: z.string(), title: z.string(), titleAccent: z.string(), lead: z.string(), image: z.string(),
     imageCaption: z.string(), points: z.array(z.string()).min(1),
+    /** Under the doctor avatars. */
+    teamLine: z.string(),
     quickBook: z.object({ title: z.string(), lead: z.string(), button: z.string(), note: z.string() }),
   }),
   departments: Head.extend({ servicesLabel: z.string(), doctorsLabel: z.string(), moreLabel: z.string() }),
   doctors: Head,
   visit: Head.extend({ note: z.string(), steps: z.array(IconItem.extend({ who: z.string() })).min(3) }),
+  /** WhatsApp follow-up, shown as example messages in a phone (only when the plan includes WhatsApp reminders). */
+  messages: Head.extend({
+    phoneTitle: z.string(), phoneSubtitle: z.string(), note: z.string(),
+    steps: z.array(z.object({ icon: z.string(), when: z.string(), title: z.string(), text: z.string(), action: z.string().optional(), time: z.string() })).min(2),
+  }),
   promise: Head.extend({ items: z.array(IconItem).min(2) }),
   gallery: Head.extend({ tiles: z.array(z.object({ image: z.string(), caption: z.string() })).min(4) }),
   location: Head.extend({ image: z.string() }),
@@ -329,6 +342,9 @@ const ImageRef = z.object({
   credit: z.string().optional(),
   /** CSS object-position focal point for cropped displays, e.g. "50% 18%" (keeps a face or signage in frame). */
   objectPosition: z.string().regex(/^\d{1,3}% \d{1,3}%$/).optional(),
+  /** "contain" = never cropped (images with lettering); shown on `background` (sampled from the image's edges). */
+  fit: z.enum(['cover', 'contain']).optional(),
+  background: z.string().optional(),
 });
 export const ImagesSchema = z.object({
   _note: Note,

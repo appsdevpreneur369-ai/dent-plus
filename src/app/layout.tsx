@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { BookingProvider } from '@/components/booking/BookingProvider';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { InfoBar } from '@/components/layout/InfoBar';
 import { Logo } from '@/components/layout/Logo';
 import { MobileActionBar } from '@/components/layout/MobileActionBar';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <JsonLd data={clinicJsonLd()} />
         <BookingProvider config={booking}>
+          <InfoBar />
           <Header
             logo={<Logo priority />}
             items={siteNav.header}

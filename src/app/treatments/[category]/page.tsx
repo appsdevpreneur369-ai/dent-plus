@@ -9,6 +9,7 @@ import { Accordion, DraftBadge } from '@/components/ui/primitives';
 import { categories, getCategory, getDepartment, getDoctorById, getImage, siteServices } from '@/lib/content';
 import { faqJsonLd, treatmentJsonLd } from '@/lib/jsonld';
 import { pageMetadata } from '@/lib/seo';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 export const dynamicParams = false;
 export const generateStaticParams = () => categories.map((c) => ({ category: c.slug }));
@@ -39,7 +40,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
         ]}
         aside={
           <div className="relative aspect-[4/3] overflow-hidden rounded-brand border border-border">
-            <Image src={img.src} alt={img.alt} fill priority sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" style={{ objectPosition: img.objectPosition }} />
+            <Image src={img.src} alt={img.alt} fill priority sizes="(min-width: 1024px) 30vw, 100vw" className={fitClass(img)} style={fitStyle(img)} />
           </div>
         }
       >

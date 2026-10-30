@@ -1,14 +1,16 @@
+import Image from 'next/image';
 import { BookButton } from '@/components/booking/BookButton';
 import { MapFacade } from '@/components/contact/MapFacade';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Icon, WhatsAppIcon } from '@/components/ui/Icon';
 import { OpenStatus } from '@/components/ui/OpenStatus';
 import { DraftBadge } from '@/components/ui/primitives';
-import { siteClinic, sitePages } from '@/lib/content';
+import { getImage, siteClinic, sitePages } from '@/lib/content';
 import { dayRangeShort, formatSessions, groupDays } from '@/lib/hours';
 import { altCall, channels, directionsHref, generalWhatsappHref, mapEmbedSrc, mapsApproximate } from '@/lib/links';
 import { pageMetadata } from '@/lib/seo';
 import { fullAddress } from '@/lib/vars';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 const p = sitePages.contact;
 export const metadata = pageMetadata({ path: '/contact', title: p.title, description: p.description });
@@ -20,6 +22,11 @@ export default function ContactPage() {
     { icon: 'mail', label: 'Email', value: channels.email ? <a href={channels.email.href} className="font-semibold text-primary hover:underline">{channels.email.display}</a> : <span className="flex items-center gap-2">Being confirmed <DraftBadge status={siteClinic.email.status} /></span> },
     { icon: 'map-pin', label: 'Address', value: <address className="not-italic">{fullAddress}</address> },
   ];
+  const boards = [
+    { img: getImage('clinic-name-board'), caption: 'The lit blue name board on Ashok Nagar 3rd Lane', wide: true },
+    { img: getImage('clinic-signboard-telugu'), caption: 'Tooth-shaped sign at the entrance', wide: false },
+    { img: getImage('clinic-reception'), caption: 'Reception, once you step inside', wide: false },
+  ];
   return (
     <>
       <PageHeader title={p.h1!} intro={p.intro} crumbs={[{ name: 'Contact', path: '/contact' }]} />
@@ -28,12 +35,13 @@ export default function ContactPage() {
           <div>
             <dl className="divide-y divide-border border-y border-border">
               {rows.map((r, i) => (
-                <div key={i} className="grid grid-cols-[2.75rem_1fr] items-start gap-4 py-5">
-                  <span className="icon-tile">{r.icon === 'whatsapp' ? <WhatsAppIcon /> : <Icon name={r.icon} />}</span>
-                  <div>
-                    <dt className="text-sm text-textSecondary">{r.label}</dt>
-                    <dd className="mt-0.5 text-lg">{r.value}</dd>
-                  </div>
+                <div key={i} className="relative py-5 pl-[3.75rem]">
+                  {/* Icon inside <dt>: a <dl> row may only hold dt/dd. */}
+                  <dt className="text-sm text-textSecondary">
+                    <span className="icon-tile absolute left-0 top-5">{r.icon === 'whatsapp' ? <WhatsAppIcon /> : <Icon name={r.icon} />}</span>
+                    {r.label}
+                  </dt>
+                  <dd className="mt-0.5 text-lg">{r.value}</dd>
                 </div>
               ))}
             </dl>
@@ -60,6 +68,19 @@ export default function ContactPage() {
           </div>
           <div>
             <MapFacade src={mapEmbedSrc} title={`Map: ${siteClinic.name.value}`} label="Show map" note={mapsApproximate ? 'Loads Google Maps · pin is approximate' : undefined} />
+            <h2 className="mt-10 text-[1.7rem]">What to look for</h2>
+            <ul className="mt-4 grid grid-cols-2 gap-3">
+              {boards.map((b) => (
+                <li key={b.caption} className={b.wide ? 'col-span-2' : undefined}>
+                  <figure>
+                    <div className={`relative overflow-hidden rounded-brand border border-border ${b.wide ? 'aspect-[1600/717]' : 'aspect-[4/5]'}`}>
+                      <Image src={b.img.src} alt={b.img.alt} fill sizes={b.wide ? '(min-width: 1024px) 40vw, 100vw' : '(min-width: 1024px) 20vw, 50vw'} className={fitClass(b.img)} style={fitStyle(b.img)} />
+                    </div>
+                    <figcaption className="mt-2 text-sm text-textSecondary">{b.caption}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
             <h2 className="mt-10 text-[1.7rem]">Finding us</h2>
             <ul className="mt-4 space-y-3">
               {siteClinic.maps.wayfinding.map((w) => (

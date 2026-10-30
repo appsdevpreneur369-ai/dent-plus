@@ -5,12 +5,14 @@ import { useRef, useState, type KeyboardEvent } from 'react';
 import { cn } from '@/lib/cn';
 import { useBooking } from '../booking/BookingProvider';
 import { Icon } from '../ui/Icon';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 export type SwitcherDepartment = {
   id: string;
   title: string;
   shortTitle: string;
   icon: string;
+  image: { src: string; alt: string; objectPosition?: string; fit?: 'cover' | 'contain'; background?: string };
   line: string;
   summary: string;
   caution?: string;
@@ -60,7 +62,7 @@ export function DepartmentSwitcher({ departments, labels }: { departments: Switc
                 selected ? 'border-sky bg-sky text-navy' : 'border-onDark/20 text-onDark hover:border-onDark/60',
               )}
             >
-              <Icon name={d.icon} className="h-5 w-5" />
+              <Icon name={d.icon} className="h-6 w-6" />
               {d.shortTitle}
             </button>
           );
@@ -70,6 +72,12 @@ export function DepartmentSwitcher({ departments, labels }: { departments: Switc
       {departments.map((d) => (
         <div key={d.id} role="tabpanel" id={`panel-${d.id}`} aria-labelledby={`tab-${d.id}`} hidden={d.id !== active} className={cn('mt-10 gap-10 lg:grid-cols-[1.1fr_1fr_0.9fr] motion-safe:animate-rise', d.id === active ? 'grid' : 'hidden')}>
           <div>
+            <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-brand border border-onDark/10 bg-navySoft">
+              <Image src={d.image.src} alt={d.image.alt} fill sizes="(min-width: 1024px) 30vw, 100vw" className={fitClass(d.image)} style={fitStyle(d.image)} />
+              <span className="absolute bottom-3 left-3 flex h-14 w-14 items-center justify-center rounded-tile bg-sky text-navy shadow-card">
+                <Icon name={d.icon} className="h-7 w-7" strokeWidth={1.7} />
+              </span>
+            </div>
             <h3 className="text-[2rem] !text-onDark">{d.title}</h3>
             <p className="mt-4 leading-relaxed text-onDarkMuted">{d.summary}</p>
             {d.caution && <p className="mt-4 border-l-2 border-sky pl-4 text-sm text-onDarkMuted">{d.caution}</p>}

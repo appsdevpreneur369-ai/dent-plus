@@ -1,11 +1,14 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { BookButton } from '@/components/booking/BookButton';
 import { DoctorCard, TreatmentCard } from '@/components/cards';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { DepartmentBanner } from '@/components/sections/DepartmentBanner';
 import { Icon } from '@/components/ui/Icon';
 import { SectionHead } from '@/components/ui/primitives';
-import { categoriesInDepartment, doctorsInDepartment, getDepartment, siteDepartments, siteRouting } from '@/lib/content';
+import { categoriesInDepartment, doctorsInDepartment, getDepartment, getImage, siteDepartments, siteRouting } from '@/lib/content';
 import { pageMetadata } from '@/lib/seo';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 export const dynamicParams = false;
 export const generateStaticParams = () => siteDepartments.map((d) => ({ id: d.id }));
@@ -21,6 +24,7 @@ export default function DepartmentPage({ params }: { params: { id: string } }) {
   if (!d) notFound();
   const cats = categoriesInDepartment(d.id);
   const docs = doctorsInDepartment(d.id);
+  const img = getImage(d.image);
   const concerns = siteRouting.problems.filter((p) => p.department === d.id);
   return (
     <>
@@ -28,25 +32,34 @@ export default function DepartmentPage({ params }: { params: { id: string } }) {
         title={d.title}
         intro={d.summary}
         eyebrow="Department"
+        banner={<DepartmentBanner d={d} doctors={docs} />}
         crumbs={[
           { name: 'Departments', path: '/departments' },
           { name: d.title, path: `/departments/${d.id}` },
         ]}
         aside={
-          <div className="rounded-brand border border-border bg-surface p-6">
-            <p className="font-heading text-lg font-semibold text-navy">Book in this department</p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {concerns.map((c) => (
-                <li key={c.id}>
-                  <BookButton prefill={{ problem: c.id }} className="chip text-sm">
-                    <Icon name={c.icon} className="h-4 w-4 text-primary" /> {c.label}
-                  </BookButton>
-                </li>
-              ))}
-            </ul>
-            <BookButton prefill={{ department: d.id }} className="btn-primary mt-5 w-full">
-              Book {d.title.toLowerCase()}
-            </BookButton>
+          <div className="overflow-hidden rounded-brand border border-border bg-surface">
+            <div className="relative aspect-[16/9] bg-navy">
+              <Image src={img.src} alt={img.alt} fill priority sizes="(min-width: 1024px) 34vw, 100vw" className={fitClass(img)} style={fitStyle(img)} />
+              <span className="absolute bottom-3 left-3 flex h-14 w-14 items-center justify-center rounded-tile bg-sky text-navy shadow-card">
+                <Icon name={d.icon} className="h-7 w-7" strokeWidth={1.7} />
+              </span>
+            </div>
+            <div className="p-6">
+              <p className="font-heading text-lg font-semibold text-navy">Book in this department</p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {concerns.map((c) => (
+                  <li key={c.id}>
+                    <BookButton prefill={{ problem: c.id }} className="chip text-sm">
+                      <Icon name={c.icon} className="h-4 w-4 text-primary" /> {c.label}
+                    </BookButton>
+                  </li>
+                ))}
+              </ul>
+              <BookButton prefill={{ department: d.id }} className="btn-primary mt-5 w-full">
+                Book {d.title.toLowerCase()}
+              </BookButton>
+            </div>
           </div>
         }
       >

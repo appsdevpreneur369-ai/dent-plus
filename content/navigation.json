@@ -1,9 +1,11 @@
 {
   "header": [
-    { "label": "Departments", "href": "/departments" },
-    { "label": "Doctors", "href": "/doctors" },
-    { "label": "Treatments", "href": "/treatments" },
+    { "label": "Home", "href": "/" },
     { "label": "About", "href": "/about" },
+    { "label": "Departments", "href": "/departments" },
+    { "label": "Treatments", "href": "/treatments" },
+    { "label": "Doctors", "href": "/doctors" },
+    { "label": "Gallery", "href": "/gallery" },
     { "label": "Guides", "href": "/patient-education" },
     { "label": "Contact", "href": "/contact" }
   ],

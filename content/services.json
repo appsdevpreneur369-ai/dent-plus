@@ -208,7 +208,7 @@
       "shortTitle": "Family medicine",
       "icon": "stethoscope",
       "size": "lg",
-      "image": "clinic-corridor",
+      "image": "clinic-reception",
       "doctors": ["venugopal-rao", "padmaja-rani"],
       "confirmSpecialist": false,
       "short": "A family doctor for everyday illness, check-ups and regular follow-up of long-term conditions.",

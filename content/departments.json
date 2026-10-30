@@ -4,6 +4,8 @@
   "departments": [
     {
       "id": "dental",
+      "image": "treatment-in-progress",
+      "banner": { "label": "On our clinic wall", "text": "Make your smile brighter with us.", "accent": "brighter", "quote": true },
       "title": "Dental care",
       "shortTitle": "Dental",
       "icon": "tooth",
@@ -14,6 +16,7 @@
     },
     {
       "id": "family",
+      "image": "clinic-reception",
       "title": "Family medicine",
       "shortTitle": "Family",
       "icon": "stethoscope",
@@ -25,6 +28,7 @@
     },
     {
       "id": "children",
+      "image": "dept-children",
       "title": "Children's health",
       "shortTitle": "Children",
       "icon": "baby",
@@ -36,6 +40,7 @@
     },
     {
       "id": "eyes",
+      "image": "dept-eyes",
       "title": "Eye care",
       "shortTitle": "Eyes",
       "icon": "eye",

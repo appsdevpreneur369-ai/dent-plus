@@ -1,6 +1,6 @@
 {
   "status": "approved",
-  "headerImage": "clinic-signboard-night",
+  "headerImage": "clinic-name-board",
   "story": {
     "title": "A dental clinic that grew into a family clinic",
     "paragraphs": [
@@ -8,7 +8,7 @@
       "The 'plus' is the rest of the family. A family physician with paediatric training and a family physician with a diploma in ophthalmology consult here too, so a child's fever or an elder's blurred vision can be seen in the same building as a dental check-up.",
       "Our tagline sums it up: your smile, our priority. The aim is simple, practical care for the people of Lakshmipuram and the rest of Guntur, explained clearly, with referral onwards whenever something needs a hospital."
     ],
-    "image": "clinic-corridor"
+    "image": "clinic-reception"
   },
   "values": {
     "title": "What you can expect",

@@ -5,8 +5,9 @@
     "title": "Teeth, eyes and everyday health,",
     "titleAccent": "one family clinic.",
     "lead": "Prosthodontists for implants and dentures, family physicians, a paediatrician and an eye doctor work side by side at Dent Plus, so the whole household can be seen in one place.",
-    "image": "clinic-operatory",
-    "imageCaption": "Our treatment room, Ashok Nagar 3rd Lane",
+    "image": "hero-clinic",
+    "imageCaption": "Our treatment room · patient's eyes blurred",
+    "teamLine": "Two prosthodontists, a paediatrician and an eye doctor",
     "points": ["Four doctors, four departments", "Open till 9 PM, Monday to Saturday", "Book online, confirm by SMS code"],
     "quickBook": {
       "title": "Book in 30 seconds",
@@ -41,6 +42,20 @@
       { "icon": "message-circle", "title": "Hear from us afterwards", "text": "A short thank-you and a reminder when your review or next visit is due.", "who": "After the visit" }
     ]
   },
+  "messages": {
+    "eyebrow": "After you book",
+    "title": "Your visit, followed up on WhatsApp",
+    "lead": "Nothing to install and nothing to remember. Four short messages carry the clinic's name and are only about your appointment, never your medical details.",
+    "phoneTitle": "Dent Plus",
+    "phoneSubtitle": "Appointments",
+    "note": "Example messages. The exact wording comes from the clinic's approved WhatsApp templates, and reminder times are set by the clinic. You can ask the desk to stop messages at any time.",
+    "steps": [
+      { "icon": "calendar-check", "when": "Seconds after you book", "title": "Booking confirmed", "text": "Hello Lakshmi, your appointment at Dent Plus with Dr. G. Phani Krishna is confirmed for Saturday at 11:15 AM. Need another time? Use the link to change or cancel.", "action": "Change or cancel", "time": "10:02" },
+      { "icon": "bell", "when": "Before your appointment", "title": "Reminder", "text": "A quick reminder: Dr. G. Phani Krishna will see you at Dent Plus today at 11:15 AM. Ashok Nagar 3rd Lane, opposite the Siti Cable office.", "time": "09:15" },
+      { "icon": "heart-handshake", "when": "A couple of hours after the visit", "title": "Thank you", "text": "Thank you for coming to Dent Plus today, Lakshmi. If anything your doctor explained is unclear, call or message us and we will help.", "time": "14:05" },
+      { "icon": "message-square", "when": "The next day", "title": "How did it go?", "text": "How was your visit to Dent Plus? A few honest words help other families in Guntur choose their clinic.", "action": "Share your feedback", "time": "10:30" }
+    ]
+  },
   "promise": {
     "eyebrow": "How we work",
     "title": "Care that explains itself",
@@ -55,19 +70,19 @@
     "title": "A look around the clinic",
     "lead": "Our own photos. Patients' faces are blurred.",
     "tiles": [
-      { "image": "clinic-operatory-chair", "caption": "Dental chair" },
-      { "image": "clinic-signboard-night", "caption": "Our board at night" },
-      { "image": "treatment-team", "caption": "A dental procedure under way" },
+      { "image": "hero-clinic", "caption": "Two dentists at the chair" },
+      { "image": "clinic-reception", "caption": "Reception" },
       { "image": "clinic-family-eye-care", "caption": "Family & eye care room" },
-      { "image": "clinic-waiting", "caption": "Waiting area" },
-      { "image": "clinic-smile-wall", "caption": "Make your smile brighter with us" }
+      { "image": "clinic-smile-wall", "caption": "Our smile wall" },
+      { "image": "treatment-in-progress", "caption": "A check-up under way" },
+      { "image": "clinic-operatory", "caption": "Our dental treatment room" }
     ]
   },
   "location": {
     "eyebrow": "Find us",
     "title": "Opposite the Siti Cable office, Lakshmipuram",
     "lead": "Look for the lit blue Dent Plus board on Ashok Nagar 3rd Lane.",
-    "image": "clinic-signboard-night"
+    "image": "clinic-reception"
   },
   "education": { "eyebrow": "Read before you visit", "title": "Patient guides", "lead": "Plain-language articles written for our patients. Doctor review in progress." },
   "faq": { "eyebrow": "Questions", "title": "Asked at the front desk" },

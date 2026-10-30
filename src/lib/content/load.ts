@@ -97,6 +97,7 @@ export function checkReferences(c: SiteContent, articleRefs: { slug: string; ima
   // Departments: every department has doctors who list it, every category/concern/doctor points at a real department.
   const depts = c['departments.json'].departments;
   need(new Set(depts.map((d) => d.id)).size === depts.length, 'departments.json: duplicate department id');
+  for (const d of depts) need(imageIds.has(d.image), `departments.json ${d.id}: image "${d.image}" not in images.json`);
   for (const d of depts)
     for (const id of d.doctors) {
       need(doctorIds.has(id), `departments.json ${d.id}: unknown doctor "${id}"`);

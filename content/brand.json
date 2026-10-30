@@ -24,6 +24,8 @@
     "warning": "#9A4A0C",
     "warningText": "#7F3C0A",
     "warningSoft": "#FDF1E0",
+    "successOnDark": "#4ADE80",
+    "warningOnDark": "#FBBF24",
     "whatsapp": "#0F7A43"
   },
   "fonts": { "heading": "Outfit", "body": "Figtree" },

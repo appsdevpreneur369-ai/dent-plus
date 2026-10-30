@@ -1,7 +1,8 @@
-// Builds public/images/photos/ from the clinic's OWN photos in images/ (supplied by the account owner, 27 Oct 2026).
-// Offline, no stock photos. Patients' eyes are blurred (owner's instruction, 27 Oct 2026). Never upscaled.
-// Not used: dent-plus-banner*.jpeg (posters with a stock model: no rights to her face); logo.jpeg (redrawn as brand/dent-plus-mark.svg);
-// exterior-road-side-board.jpeg (byte-identical to exterior-name-board.jpeg); WhatsApp 8.17.40 / 8.18.27 (near-copies of the signboards).
+// Builds public/images/photos/ from the clinic's OWN photos in images/ (supplied by the account owner: first set 27 Oct 2026,
+// polished set 30 Oct 2026). Offline, no stock photos. Patients' eyes are blurred (owner's instruction, 27 Oct 2026). Never upscaled.
+// Not used: interior-banner-1.png and dent-plus-banner*.jpeg (posters with a stock model: no rights to her face; the same poster
+// stands at reception in interior-reception.png and is cropped out); logo.jpeg (redrawn as brand/dent-plus-mark.svg).
+// Sources the owner removed on 30 Oct (family-eye-care.jpeg for the eye crop) are in git history; a missing source keeps its output.
 // Run: node scripts/build-photos.mjs   (then npm run images for the WebP variants)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -15,18 +16,24 @@ fs.mkdirSync(outDir, { recursive: true });
 const PHOTOS = [
   { src: 'treatment-chair-equipment.jpeg', out: 'clinic-operatory.jpg' },
   { src: 'treatment-chair-equipment-second.jpeg', out: 'clinic-operatory-chair.jpg' },
-  { src: 'exterior-name-board-main.jpeg', out: 'clinic-signboard-night.jpg' },
-  { src: 'exterior-name-board.jpeg', out: 'clinic-signboard-telugu.jpg' },
-  { src: 'interior-main-entrance-3.jpeg', out: 'clinic-waiting.jpg' },
-  { src: 'interior-main-entrance-2.jpeg', out: 'clinic-corridor.jpg' },
-  // The left of this photo shows the stock-model poster at reception: cropped out.
-  { src: 'interior-main-entrance.jpeg', out: 'clinic-reception.jpg', crop: { left: 760, top: 0, width: 840, height: 1200 } },
-  { src: 'family-eye-care.jpeg', out: 'clinic-family-eye-care.jpg' },
-  { src: 'WhatsApp Image 2026-10-27 at 8.17.46 PM.jpeg', out: 'clinic-smile-wall.jpg' },
-  { src: 'patient-treatment.jpeg', out: 'treatment-in-progress.jpg', blur: [{ x: 640, y: 840, w: 130, h: 95 }] },
-  { src: 'treatment-chair-equipment-patient-1.jpeg', out: 'treatment-team.jpg', blur: [{ x: 415, y: 650, w: 120, h: 95 }] },
+  // The lit main name board (blue background): hero band, find-us, doctors, contact, OG card.
+  { src: 'exterior-main-name-board.png', out: 'clinic-name-board.jpg' },
+  { src: 'exterior-road-side-board.jpeg', out: 'clinic-signboard-telugu.jpg' },
+  { src: 'interior-waiting-room.jpeg', out: 'clinic-waiting.jpg' },
+  // The left third of this photo is the stock-model poster at reception: cropped out.
+  { src: 'interior-reception.png', out: 'clinic-reception.jpg', crop: { left: 405, top: 0, width: 587, height: 541 } },
+  { src: 'doctor-consultation-room.png', out: 'clinic-consultation-room.jpg' },
+  { src: 'interior-banner-3.png', out: 'clinic-family-eye-care.jpg' },
+  { src: 'interior-banner-2.png', out: 'clinic-smile-wall.jpg' },
+  // Department cards: the family + stethoscope graphic (children) and the eye from the first door photo.
+  { src: 'interior-banner-3.png', out: 'dept-children.jpg', crop: { left: 60, top: 30, width: 380, height: 280 } },
+  { src: 'family-eye-care.jpeg', out: 'dept-eyes.jpg', crop: { left: 300, top: 870, width: 640, height: 360 } },
+  // Home hero background (owner, 30 Oct 2026): two dentists at the chair. The stock-model poster on the left wall is
+  // cropped out (crop starts right of its frame); the patient's eyes are blurred.
+  { src: 'hero-image.png', out: 'hero-clinic.jpg', crop: { left: 425, top: 0, width: 1495, height: 1280 }, blur: [{ x: 1140, y: 582, w: 80, h: 52 }] },
+  // A dentist treating a young patient (hero); patient's eyes blurred.
+  { src: 'doctor-treating-patient.png', out: 'treatment-in-progress.jpg', blur: [{ x: 560, y: 360, w: 125, h: 85 }] },
   { src: 'treatment-chair-equipment-patient.jpeg', out: 'treatment-close.jpg', blur: [{ x: 680, y: 865, w: 240, h: 170 }] },
-  { src: 'treatment-chair-equipment-patient-2.jpeg', out: 'treatment-room-wide.jpg', blur: [{ x: 0, y: 1100, w: 95, h: 140 }] },
   // Dr. B. Deepthi at work (owner allowed this photo, 27 Oct 2026); patient's eyes blurred.
   { src: 'treatment-chair-equipment-patient.jpeg', out: 'doctor-deepthi-at-work.jpg', crop: { left: 380, top: 560, width: 760, height: 760 }, blur: [{ x: 680, y: 865, w: 240, h: 170 }] },
 ];
@@ -53,7 +60,8 @@ for (const p of PHOTOS) {
     console.warn(`skip ${p.out}: images/${p.src} not on this machine (keeping the committed public/images/photos/${p.out})`);
     continue;
   }
-  let buf = await sharp(path.join(root, 'images', p.src)).rotate().toBuffer();
+  // PNGs from the polished set carry an alpha channel: flatten on white before JPEG.
+  let buf = await sharp(path.join(root, 'images', p.src)).rotate().flatten({ background: '#ffffff' }).toBuffer();
   if (p.blur) buf = await blurRegions(buf, p.blur);
   let img = sharp(buf);
   if (p.crop) img = img.extract(p.crop);

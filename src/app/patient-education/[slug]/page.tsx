@@ -8,6 +8,7 @@ import { Icon } from '@/components/ui/Icon';
 import { articles, getArticle, getDoctorById, getImage } from '@/lib/content';
 import { articleJsonLd } from '@/lib/jsonld';
 import { pageMetadata } from '@/lib/seo';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 export const dynamicParams = false;
 export const generateStaticParams = () => articles.map((a) => ({ slug: a.meta.slug }));
@@ -55,7 +56,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         <div className="container-site grid gap-12 lg:grid-cols-[1fr_18rem] lg:gap-16">
           <article>
             <div className="relative mb-10 aspect-[16/8] overflow-hidden rounded-brand border border-border">
-              <Image src={img.src} alt={img.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" style={{ objectPosition: img.objectPosition }} />
+              <Image src={img.src} alt={img.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className={fitClass(img)} style={fitStyle(img)} />
             </div>
             <div className="prose-site" dangerouslySetInnerHTML={{ __html: a.html }} />
           </article>

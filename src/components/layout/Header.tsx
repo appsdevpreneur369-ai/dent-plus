@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 import { BookButton } from '../booking/BookButton';
 import { Icon } from '../ui/Icon';
@@ -14,6 +14,9 @@ export function Header({ logo, items, callHref, callDisplay, signInHref, status 
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
+  // The menu sheet starts at the header's real bottom edge: 72px once stuck, lower at the page top (info bar above).
+  const [menuTop, setMenuTop] = useState(72);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -41,7 +44,10 @@ export function Header({ logo, items, callHref, callDisplay, signInHref, status 
   const active = (href: string) => (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`));
 
   return (
-    <header className={cn('sticky top-0 z-50 h-[72px] bg-surface/95 backdrop-blur transition-shadow', scrolled || menu ? 'shadow-[0_1px_0_rgb(var(--c-border))]' : '')}>
+    <header ref={headerRef} className={cn('sticky top-0 z-50 h-[72px] transition-shadow', scrolled || menu ? 'shadow-[0_1px_0_rgb(var(--c-border))]' : '')}>
+      {/* Blur on its own layer: backdrop-filter on <header> itself would make it the containing block of the fixed menu
+          sheet below (the sheet then collapsed to 0px height inside the 72px header). */}
+      <span aria-hidden="true" className="absolute inset-0 -z-10 bg-surface/95 backdrop-blur" />
       <div className="container-site flex h-[72px] items-center justify-between gap-4">
         {logo}
         <nav aria-label="Main" className="hidden h-full xl:block">
@@ -65,7 +71,10 @@ export function Header({ logo, items, callHref, callDisplay, signInHref, status 
           <button
             id="menu-toggle"
             type="button"
-            onClick={() => setMenu((m) => !m)}
+            onClick={() => {
+              setMenuTop(Math.max(0, headerRef.current?.getBoundingClientRect().bottom ?? 72));
+              setMenu((m) => !m);
+            }}
             aria-expanded={menu}
             aria-controls="mobile-menu"
             aria-label={menu ? 'Close menu' : 'Open menu'}
@@ -75,14 +84,9 @@ export function Header({ logo, items, callHref, callDisplay, signInHref, status 
           </button>
         </div>
       </div>
-      <nav id="mobile-menu" aria-label="Mobile" hidden={!menu} className="fixed inset-x-0 bottom-0 top-[72px] overflow-y-auto bg-surface xl:hidden">
+      <nav id="mobile-menu" aria-label="Mobile" hidden={!menu} style={{ top: menuTop }} className="fixed inset-x-0 bottom-0 overflow-y-auto bg-surface xl:hidden">
         <div className="container-site py-6">
           <ul>
-            <li>
-              <Link href="/" aria-current={pathname === '/' ? 'page' : undefined} className="mobile-nav-link">
-                Home <Icon name="chevron-right" className="h-5 w-5 text-sky" />
-              </Link>
-            </li>
             {items.map((it) => (
               <li key={it.href}>
                 <Link href={it.href} aria-current={active(it.href) ? 'page' : undefined} className="mobile-nav-link">

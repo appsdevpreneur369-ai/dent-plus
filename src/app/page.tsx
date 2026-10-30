@@ -4,19 +4,23 @@ import { ArticleCard, DoctorCard } from '@/components/cards';
 import { MapFacade } from '@/components/contact/MapFacade';
 import { BookButton } from '@/components/booking/BookButton';
 import { DepartmentSwitcher, type SwitcherDepartment } from '@/components/sections/DepartmentSwitcher';
+import { PhotoViewer } from '@/components/sections/PhotoViewer';
 import { QuickBook } from '@/components/sections/QuickBook';
+import { WhatsAppFollowUp } from '@/components/sections/WhatsAppFollowUp';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Icon, WhatsAppIcon } from '@/components/ui/Icon';
 import { OpenStatus } from '@/components/ui/OpenStatus';
 import { Accordion, SectionHead, TextLink } from '@/components/ui/primitives';
 import {
-  articles, categoriesInDepartment, doctorsInDepartment, getImage, siteClinic, siteDepartments, siteDoctors, siteFaqs, siteHome, sitePages, siteRouting,
+  articles, categoriesInDepartment, doctorsInDepartment, getImage, siteClinic, siteDepartments, siteDoctors, siteFaqs, siteHome, sitePages, sitePlan, siteRouting,
 } from '@/lib/content';
 import { dayRangeShort, formatSessions, groupDays } from '@/lib/hours';
 import { faqJsonLd } from '@/lib/jsonld';
 import { altCall, channels, directionsHref, generalWhatsappHref, mapEmbedSrc, mapsApproximate } from '@/lib/links';
+import { hasFeature } from '@/lib/plan';
 import { pageMetadata } from '@/lib/seo';
 import { fill, fullAddress } from '@/lib/vars';
+import { fitClass, fitStyle } from '@/lib/image-fit';
 
 const p = sitePages.home;
 export const metadata = pageMetadata({ path: '/', title: p.title, description: p.description, absoluteTitle: p.absoluteTitle });
@@ -29,6 +33,7 @@ export default function HomePage() {
     title: d.title,
     shortTitle: d.shortTitle,
     icon: d.icon,
+    image: getImage(d.image),
     line: d.line,
     summary: d.summary,
     caution: d.caution,
@@ -37,49 +42,89 @@ export default function HomePage() {
     doctors: doctorsInDepartment(d.id).map((x) => ({ slug: x.slug, displayName: x.displayName, initials: x.initials, specialty: x.specialty, photo: x.photo ? getImage(x.photo).src : null })),
   }));
   const faqs = siteFaqs.items.filter((f) => f.home);
-  const tiles = h.gallery.tiles;
+  const tiles = h.gallery.tiles.map((t) => ({ id: t.image, ...getImage(t.image), caption: t.caption }));
 
   return (
     <>
       <JsonLd data={faqJsonLd(faqs)} />
 
-      {/* Split hero: editorial headline left, the clinic's own photo + quick booking card right. */}
-      <section className="relative overflow-hidden">
-        <div className="grid-wash pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="container-site relative grid gap-12 pb-16 pt-10 sm:pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16 lg:pb-24 lg:pt-16">
+      {/* Hero: the clinic's own treatment room as the background. On desktop the photo fills the right two-thirds and a
+          navy veil runs from the text side, so the two dentists stay visible between the headline and the booking card. On phones the photo is a band at the top that fades into navy
+          behind the headline. Quick-booking card on the right. (The name board lives on About, Doctors, Contact and Gallery.) */}
+      <section className="on-dark relative isolate overflow-hidden bg-navy">
+        <div className="absolute inset-x-0 top-0 -z-10 h-[22rem] sm:h-[28rem] lg:inset-y-0 lg:left-[30%] lg:right-0 lg:h-auto">
+          <Image src={hero.src} alt={hero.alt} fill priority sizes="100vw" className="object-cover" style={{ objectPosition: hero.objectPosition }} />
+          <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy/35 via-navy/70 to-navy lg:hidden" />
+          <span aria-hidden="true" className="absolute inset-0 hidden bg-gradient-to-r from-navy from-[4%] via-navy/45 via-[32%] to-navy/10 lg:block" />
+          <span aria-hidden="true" className="absolute inset-x-0 bottom-0 hidden h-48 bg-gradient-to-t from-navy to-transparent lg:block" />
+        </div>
+        <div className="container-site relative grid gap-12 pb-14 pt-44 sm:pb-16 sm:pt-60 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:pb-24 lg:pt-20">
           <div>
             <p className="eyebrow">{h.hero.eyebrow}</p>
-            <h1 className="mt-6 text-balance">
-              {h.hero.title} <span className="text-primary">{h.hero.titleAccent}</span>
+            <h1 className="mt-6 text-balance !text-onDark">
+              {h.hero.title} <span className="text-skyOnDark">{h.hero.titleAccent}</span>
             </h1>
-            <p className="lead mt-6 max-w-xl">{h.hero.lead}</p>
-            <ul className="mt-7 grid gap-3 sm:grid-cols-3 sm:gap-4">
-              {h.hero.points.map((pt) => (
-                <li key={pt} className="flex items-start gap-2.5 border-t border-border pt-3 text-[0.95rem] font-medium text-text">
-                  <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky text-xs font-bold text-onDark">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-onDarkMuted">{h.hero.lead}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <BookButton className="btn-light">
+                Book an appointment <Icon name="arrow-right" className="h-4 w-4" />
+              </BookButton>
+              {channels.call && (
+                <a href={channels.call.href} className="btn-dark-ghost">
+                  <Icon name="phone" className="h-4 w-4" /> {channels.call.display}
+                </a>
+              )}
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
+              <ul className="flex -space-x-3" aria-label="Our doctors">
+                {siteDoctors.map((d) => (
+                  <li key={d.id}>
+                    <Link href={`/doctors/${d.slug}`} className="block rounded-full ring-[3px] ring-navy" title={d.displayName}>
+                      {d.photo ? (
+                        <Image src={getImage(d.photo).src} alt={d.displayName} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
+                      ) : (
+                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary font-heading text-sm font-semibold text-onDark">
+                          <span className="sr-only">{d.displayName}</span>
+                          <span aria-hidden="true">{d.initials}</span>
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-onDarkMuted">
+                <span className="block font-semibold text-onDark">{h.hero.points[0]}</span>
+                {h.hero.teamLine}
+              </p>
+            </div>
+            <ul className="mt-8 grid gap-3 border-t border-onDark/15 pt-6 sm:grid-cols-2">
+              {h.hero.points.slice(1).map((pt) => (
+                <li key={pt} className="flex items-start gap-2.5 text-[0.95rem] font-medium text-onDark">
+                  <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky text-xs font-bold text-navy">
                     +
                   </span>
                   {pt}
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <OpenStatus hours={siteClinic.hours.days} timeZone={siteClinic.timezone} />
-              {[channels.call, altCall].filter(Boolean).map((c) => (
-                <a key={c!.href} href={c!.href} className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-navy hover:text-primary">
-                  <Icon name="phone" className="h-4 w-4 text-sky" /> {c!.display}
-                </a>
-              ))}
-            </div>
           </div>
-          <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-brand border border-border lg:aspect-[4/5]">
-              <Image src={hero.src} alt={hero.alt} fill priority sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" style={{ objectPosition: hero.objectPosition }} />
-              <span className="absolute right-3 top-3 rounded-full bg-surface/90 px-3 py-1 text-xs font-medium text-navy backdrop-blur">{h.hero.imageCaption}</span>
+          <div className="lg:flex lg:flex-col lg:items-end lg:gap-4">
+            <div className="lg:w-[22rem]">
+              <QuickBook {...h.hero.quickBook} callHref={altCall?.href ?? channels.call?.href ?? null} callDisplay={altCall?.display ?? channels.call?.display ?? null} />
             </div>
-            <div className="relative -mt-14 px-3 sm:px-8 lg:absolute lg:-bottom-8 lg:-left-16 lg:mt-0 lg:w-[22rem] lg:px-0">
-              <QuickBook {...h.hero.quickBook} callHref={channels.call?.href ?? null} callDisplay={channels.call?.display ?? null} />
-            </div>
+            <p className="mt-4 text-center text-xs text-onDarkMuted lg:mt-0 lg:text-right">{h.hero.imageCaption}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Doctor strip. */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHead eyebrow={h.doctors.eyebrow} title={h.doctors.title} lead={h.doctors.lead} action={<TextLink href="/doctors">All doctors</TextLink>} />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {siteDoctors.map((d) => (
+              <DoctorCard key={d.id} d={d} />
+            ))}
           </div>
         </div>
       </section>
@@ -95,18 +140,6 @@ export default function HomePage() {
             {h.departments.lead && <p className="mt-4 text-lg text-onDarkMuted">{h.departments.lead}</p>}
           </div>
           <DepartmentSwitcher departments={switcher} labels={{ services: h.departments.servicesLabel, doctors: h.departments.doctorsLabel, more: h.departments.moreLabel }} />
-        </div>
-      </section>
-
-      {/* Doctor strip. */}
-      <section className="section">
-        <div className="container-site">
-          <SectionHead eyebrow={h.doctors.eyebrow} title={h.doctors.title} lead={h.doctors.lead} action={<TextLink href="/doctors">All doctors</TextLink>} />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {siteDoctors.map((d) => (
-              <DoctorCard key={d.id} d={d} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -135,6 +168,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* WhatsApp follow-up, only when the plan sends WhatsApp messages. */}
+      {hasFeature(sitePlan, 'whatsappReminders') && <WhatsAppFollowUp {...h.messages} />}
+
       {/* How we work. */}
       <section className="section">
         <div className="container-site grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -157,18 +193,7 @@ export default function HomePage() {
       <section className="section pt-0">
         <div className="container-site">
           <SectionHead eyebrow={h.gallery.eyebrow} title={h.gallery.title} lead={h.gallery.lead} action={<TextLink href="/gallery">Full gallery</TextLink>} />
-          <ul className="grid auto-rows-[9.5rem] grid-cols-2 gap-3 sm:auto-rows-[12rem] lg:grid-cols-4 lg:gap-4">
-            {tiles.map((t, i) => {
-              const img = getImage(t.image);
-              const span = i === 0 ? 'col-span-2 row-span-2' : i === 1 || i >= 4 ? 'col-span-2' : '';
-              return (
-                <li key={t.image} className={`group relative overflow-hidden rounded-brand border border-border ${span}`}>
-                  <Image src={img.src} alt={img.alt} fill sizes={i === 0 ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw'} className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" style={{ objectPosition: img.objectPosition }} />
-                  <span className="absolute bottom-2 left-2 rounded-full bg-surface/90 px-3 py-1 text-xs font-medium text-navy backdrop-blur">{t.caption}</span>
-                </li>
-              );
-            })}
-          </ul>
+          <PhotoViewer photos={tiles} layout="bento" />
         </div>
       </section>
 
@@ -213,8 +238,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="relative aspect-[16/7] overflow-hidden rounded-brand border border-border">
-              <Image src={getImage(h.location.image).src} alt={getImage(h.location.image).alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" style={{ objectPosition: getImage(h.location.image).objectPosition }} />
+            <div className="relative aspect-[16/9] overflow-hidden sm:aspect-[16/7] rounded-brand border border-border">
+              <Image src={getImage(h.location.image).src} alt={getImage(h.location.image).alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className={`${fitClass(getImage(h.location.image))}`} style={fitStyle(getImage(h.location.image))} />
             </div>
             <MapFacade src={mapEmbedSrc} title={`Map: ${siteClinic.name.value}`} label="Show map" note={mapsApproximate ? 'Loads Google Maps · pin is approximate' : undefined} />
           </div>

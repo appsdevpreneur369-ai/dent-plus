@@ -74,8 +74,8 @@ function shingles(text) {
 const ours = new Map();
 const add = (label, strs) => { for (const s of strs) for (const [k, v] of shingles(s)) if (!ours.has(k)) ours.set(k, { file: label, text: v }); };
 for (const f of files(path.join(root, 'content'), /\.(json|md)$/)) add(path.relative(root, f), contentStrings(f));
-const ourHtml = files(path.join(root, '.next/server/app'), /\.html$/);
-for (const f of ourHtml) add(`built ${path.relative(path.join(root, '.next/server/app'), f)}`, htmlStrings(f));
+const ourHtml = files(path.join(root, process.env.NEXT_DIST_DIR || '.next', 'server/app'), /\.html$/);
+for (const f of ourHtml) add(`built ${path.relative(path.join(root, process.env.NEXT_DIST_DIR || '.next', 'server/app'), f)}`, htmlStrings(f));
 // UI code only (pages + components). src/lib is the shared engineering layer (log messages, not patient-facing copy).
 for (const f of ['app', 'components'].flatMap((d) => files(path.join(root, 'src', d), /\.tsx?$/))) add(path.relative(root, f), srcStrings(f));
 console.log(`ours: ${ours.size} phrases (${ourHtml.length} built pages${ourHtml.length ? '' : ': run after `next build` to include them'})`);
